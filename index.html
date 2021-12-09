@@ -155,8 +155,9 @@
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(template_img, 0, 0, 700, 350);
                 ctx.drawImage(portrait_img, 21, 64, 67, 75);
-                ctx.fillStyle = "white";
                 ctx.font = "21px DINNext-Light";
+                ctx.fillStyle = "white";
+                ctx.textAlign = "start";
                 ctx.fillText(document.getElementById("title").value, 103, 34);
                 ctx.textAlign = "end";
                 ctx.fillText(document.getElementById("date").value, 658, 34);
