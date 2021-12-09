@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VALORANT Email Generator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/icon.png">
+</head>
+<body onload="loaded()">
+<div class="background" style="font-family: DINNext-Light"></div>
+<div class="content" style="font-family: DINNext-Regular">
+    <center>
+        <h1>VALORANT Email Generator</h1>
+        <table>
+            <tr>
+                <td>Template</td>
+                <td>
+                    <select id="template" onchange="processTemplate();buildEmail()">
+                        <option value="valorant" selected="selected">VALORANT</option>
+                        <option value="alpha">Alpha</option>
+                        <option value="omega">Omega</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Portrait</td>
+                <td>
+                    <select id="portrait" onchange="processPortrait();buildEmail()">
+                        <option value="viper" selected="selected">Viper</option>
+                        <option value="sage">Sage</option>
+                        <option value="cypher">Cypher</option>
+                        <option value="om">Oran McNeff</option>
+                        <option value="rp">Rúben Pontes</option>
+                        <option value="ap">Aurora Pontes</option>
+                        <option value="drs">Dr. Santos</option>
+                        <option value="ks">K-SEC</option>
+                        <option value="sa">Admin</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Sender</td>
+                <td><input type="text" id="sender" maxlength="35" size="61" onchange="buildEmail()"></td>
+            </tr>
+            <tr>
+                <td>Receiver</td>
+                <td><input type="text" id="receiver" maxlength="35" size="61" onchange="buildEmail()"></td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td><input type="text" id="title" maxlength="35" size="61" onchange="buildEmail()"></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td><input type="text" id="date" maxlength="8" size="12" onchange="buildEmail()"></td>
+            </tr>
+            <tr>
+                <td>Body</td>
+                <td><textarea id="body" style="resize: none;" cols="64" rows="8" onchange="buildEmail()"></textarea></td>
+            </tr>
+        </table>
+        <div style="margin: 20px 10px"><canvas id="result" class="thinner_din" width="700" height="350"></canvas></div>
+        <div>
+            <button onclick="toClipboard()">Copy to clipboard!</button>
+        </div>
+    </center>
+</div>
+
+<script>
+        var template = "templates/Email_0_M0_TemplateA_DF.png";
+        var portrait = "portraits/Email_0_M0_PortraitViper_DF.png";
+
+        function loaded() {
+            processTemplate();
+            processPortrait();
+            buildEmail();
+        }
+
+        function processTemplate() {
+            switch(document.getElementById("template").value) {
+                case "valorant":
+                    template = "templates/Email_0_M0_TemplateA_DF.png";
+                    break;
+                case "alpha":
+                    template = "templates/TX_KA_Email.png";
+                    break;
+                case "omega":
+                    template = "templates/TX_KO_Email.png";
+                    break;
+            }
+        }
+
+        function processPortrait() {
+            switch(document.getElementById("portrait").value) {
+                case "viper":
+                    portrait = "portraits/Email_0_M0_PortraitViper_DF.png";
+                    break;
+                case "sage":
+                    portrait = "portraits/Email_0_M0_PortraitSage_DF.png";
+                    break;
+                case "cypher":
+                    portrait = "portraits/Email_0_M0_PortraitCypher_DF.png";
+                    break;
+                case "om":
+                    portrait = "portraits/TX_Oran_Portrait.png";
+                    break;
+                case "rp":
+                    portrait = "portraits/TX_Ruben_Portrait.png";
+                    break;
+                case "ap":
+                    portrait = "portraits/TX_BitterRose_Emblem.png";
+                    break;
+                case "drs":
+                    portrait = "portraits/TX_Santos_Portrait.png";
+                    break;
+                case "ks":
+                    portrait = "portraits/TX_KSEC_Emblem.png";
+                    break;
+                case "sa":
+                    portrait = "portraits/Email_0_M0_PortraitAdmin_DF.png";
+                    break;
+            }
+        }
+
+        function fillMultilineText(context, text, x, y, maxWidth, lineHeight) {
+            var replacement = text.replaceAll("\n", "\n ");
+            var words = replacement.split(" ");
+            if(words.length == 0){
+                return
+            }
+            var line = words[0];
+            for(var n = 1; n < words.length; n++) {
+                var testLine = line + " " + words[n];
+                var metrics = context.measureText(testLine);
+                var testWidth = metrics.width;
+                if (testWidth > maxWidth || line.endsWith("\n")) {
+                    context.fillText(line, x, y);
+                    line = words[n];
+                    y += lineHeight;
+                }
+                else {
+                    line = testLine;
+                }
+            }
+            context.fillText(line, x, y);
+        }
+
+        function buildEmail() {
+            var template_img = new Image(),
+                portrait_img = new Image(),
+                canvas = document.getElementById("result"),
+                ctx = canvas.getContext("2d");
+            template_img.onload = function() {
+                portrait_img.src = portrait;
+            };
+            portrait_img.onload = function() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(template_img, 0, 0, 700, 350);
+                ctx.drawImage(portrait_img, 21, 64, 67, 75);
+                ctx.font = "21px DINNext-Light";
+                ctx.fillStyle = "white";
+                ctx.textAlign = "start";
+                ctx.fillText(document.getElementById("title").value, 103, 34);
+                ctx.textAlign = "end";
+                ctx.fillText(document.getElementById("date").value, 658, 34);
+                ctx.textAlign = "start";
+                ctx.font = "17px DINNext-Light";
+                fillMultilineText(ctx, document.getElementById("body").value, 103, 96, 493, 21);
+                ctx.font = "13px DINNext-Light";
+                ctx.fillText("INBOX", 495, 34);
+                ctx.fillText("REPLY", 164, 301);
+                ctx.fillText("FORWARD", 300, 301);
+                ctx.fillStyle = "#a0a0a0";
+                ctx.fillText(document.getElementById("sender").value, 103, 73);
+                ctx.fillText(document.getElementById("receiver").value, 389, 300);
+                ctx.font = "9px DINNext-Light";
+                ctx.textAlign = "end";
+                ctx.fillText("Generated using disturbo.me", 650, 330);
+            };
+            template_img.src = template;
+        }
+
+        function toClipboard() {
+            var canvas = document.getElementById("result");
+            try{
+                canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})]));
+            } catch(err) {
+                console.error(err.name, err.message);
+            }
+        }
+    </script>
+</body>
+</html>
