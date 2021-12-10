@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>VALORANT Email Generator</title>
+    <title>EA | VALORANT Email Generator</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
@@ -11,7 +11,7 @@
 <div class="background" style="font-family: DINNext-Light"></div>
 <div class="content" style="font-family: DINNext-Regular">
     <center>
-        <h1>VALORANT Email Generator</h1>
+        <h1>VALORANT Email Generator | Early Access</h1>
         <table>
             <tr>
                 <td>Template</td>
@@ -60,7 +60,7 @@
                 <td><textarea id="body" style="resize: none;" cols="64" rows="8" onchange="buildEmail()"></textarea></td>
             </tr>
         </table>
-        <div style="margin: 20px 10px"><canvas id="result" class="thinner_din" width="700" height="350"></canvas></div>
+        <div style="margin: 20px 10px"><canvas id="result" width="750" height="350"></canvas></div>
         <div>
             <button onclick="toClipboard()">Copy to clipboard!</button>
         </div>
@@ -149,12 +149,15 @@
         function buildEmail() {
             var template_img = new Image(),
                 portrait_img = new Image(),
-                canvas = document.getElementById("result"),
+                //canvas = document.getElementById("result"),
+                canvas = document.createElement("canvas"),
                 ctx = canvas.getContext("2d");
             template_img.onload = function() {
                 portrait_img.src = portrait;
             };
             portrait_img.onload = function() {
+                canvas.width = 700;
+                canvas.height = 350;
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(template_img, 0, 0, 700, 350);
                 ctx.drawImage(portrait_img, 21, 64, 67, 75);
@@ -176,18 +179,17 @@
                 ctx.fillText(document.getElementById("receiver").value, 389, 300);
                 ctx.font = "9px DINNext-Light";
                 ctx.textAlign = "end";
-                ctx.fillText("Generated using disturbo.me", 650, 330);
+                ctx.fillText("Generated using disturbo.me", 640, 330);
+                var result_canvas = document.getElementById("result"),
+                    result_ctx = result_canvas.getContext("2d");
+                result_ctx.drawImage(canvas, 0, 0, result_canvas.width, result_canvas.height);
             };
             template_img.src = template;
         }
 
         function toClipboard() {
             var canvas = document.getElementById("result");
-            try{
-                canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})]));
-            } catch(err) {
-                console.error(err.name, err.message);
-            }
+            canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})]));
         }
     </script>
 </body>
