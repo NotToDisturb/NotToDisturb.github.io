@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="assets/icon.png">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4P5HCX3GM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P4P5HCX3GM');
+    </script>
 </head>
 <body onload="loaded()">
     <div class="background" style="font-family: DINNext-Light"></div>
@@ -17,7 +24,7 @@
                     <td>Template</td>
                     <td>
                         <select id="template" onchange="processTemplate();buildEmail()">
-                            <option value="valorant" selected="selected">VALORANT</option>
+                            <option value="valorant">VALORANT</option>
                             <option value="alpha">Alpha</option>
                             <option value="omega">Omega</option>
                         </select>
@@ -27,10 +34,10 @@
                     <td>Portrait</td>
                     <td>
                         <select id="portrait" onchange="processPortrait();buildEmail()">
-                            <option value="viper" selected="selected">Viper</option>
+                            <option value="viper">Viper</option>
                             <option value="sage">Sage</option>
                             <option value="cypher">Cypher</option>
-                            <option value="om">Oran McNeff</option>
+                            <option value="om">Oran McEneff</option>
                             <option value="rp">Rúben Pontes</option>
                             <option value="ap">Aurora Pontes</option>
                             <option value="drs">Dr. Santos</option>
