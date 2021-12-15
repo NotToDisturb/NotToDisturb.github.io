@@ -17,7 +17,7 @@
                 <td>Template</td>
                 <td>
                     <select id="template" onchange="processTemplate();buildEmail()">
-                        <option value="valorant" selected="selected">VALORANT</option>
+                        <option value="valorant">VALORANT</option>
                         <option value="alpha">Alpha</option>
                         <option value="omega">Omega</option>
                     </select>
@@ -27,10 +27,17 @@
                 <td>Portrait</td>
                 <td>
                     <select id="portrait" onchange="processPortrait();buildEmail()">
-                        <option value="viper" selected="selected">Viper</option>
-                        <option value="sage">Sage</option>
+                        <option value="viper">Viper</option>
+                        <option value="killjoy">Killjoy *</option>
                         <option value="cypher">Cypher</option>
-                        <option value="om">Oran McNeff</option>
+                        <option value="sage">Sage</option>
+                        <option value="reyna">Reyna *</option>
+                        <option value="skye">Skye *</option>
+                        <option value="yoru">Yoru *</option>
+                        <option value="astra">Astra *</option>
+                        <option value="kayo">KAY/O *</option>
+                        <option value="chamber">Chamber *</option>
+                        <option value="om">Oran McEneff</option>
                         <option value="rp">Rúben Pontes</option>
                         <option value="ap">Aurora Pontes</option>
                         <option value="drs">Dr. Santos</option>
@@ -92,49 +99,10 @@
 
         function processTemplate() {
             template = config.templates[document.getElementById("template").value]
-            switch(document.getElementById("template").value) {
-                case "valorant":
-                    template = "templates/Email_0_M0_TemplateA_DF.png";
-                    break;
-                case "alpha":
-                    template = "templates/TX_KA_Email.png";
-                    break;
-                case "omega":
-                    template = "templates/TX_KO_Email.png";
-                    break;
-            }
         }
 
         function processPortrait() {
-            switch(document.getElementById("portrait").value) {
-                case "viper":
-                    portrait = "portraits/Email_0_M0_PortraitViper_DF.png";
-                    break;
-                case "sage":
-                    portrait = "portraits/Email_0_M0_PortraitSage_DF.png";
-                    break;
-                case "cypher":
-                    portrait = "portraits/Email_0_M0_PortraitCypher_DF.png";
-                    break;
-                case "om":
-                    portrait = "portraits/TX_Oran_Portrait.png";
-                    break;
-                case "rp":
-                    portrait = "portraits/TX_Ruben_Portrait.png";
-                    break;
-                case "ap":
-                    portrait = "portraits/TX_BitterRose_Emblem.png";
-                    break;
-                case "drs":
-                    portrait = "portraits/TX_Santos_Portrait.png";
-                    break;
-                case "ks":
-                    portrait = "portraits/TX_KSEC_Emblem.png";
-                    break;
-                case "sa":
-                    portrait = "portraits/Email_0_M0_PortraitAdmin_DF.png";
-                    break;
-            }
+            portrait = config.templates[document.getElementById("portrait").value]
         }
 
         function fillMultilineText(context, text, x, y, maxWidth, lineHeight) {
