@@ -68,16 +68,31 @@
 </div>
 
 <script>
-        var template = "templates/Email_0_M0_TemplateA_DF.png";
-        var portrait = "portraits/Email_0_M0_PortraitViper_DF.png";
+        var config = {};
+        var template = "";
+        var portrait = "";
 
         function loaded() {
+            var xhr = new XMLHttpRequest();
+            configText = "";
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    configText = xhr.responseText;
+                }
+            }
+            xhr.open("GET", "config.json");
+            xhr.send();
+            console.log(configText);
+            config = JSON.parse(configText);
+            template = config.templates.valorant;
+            portrait = config.portraits.viper;
             processTemplate();
             processPortrait();
             buildEmail();
         }
 
         function processTemplate() {
+            template = config.templates[document.getElementById("template").value]
             switch(document.getElementById("template").value) {
                 case "valorant":
                     template = "templates/Email_0_M0_TemplateA_DF.png";

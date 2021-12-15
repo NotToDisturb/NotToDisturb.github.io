@@ -1,0 +1,25 @@
+{
+    "templates": {
+        "valorant": "templates/Email_0_M0_TemplateA_DF.png",
+        "alpha": "templates/TX_KA_Email.png",
+        "omega": "templates/TX_KO_Email.png"
+    },
+    "portraits": {
+        "viper": "portraits/Email_0_M0_PortraitViper_DF.png",
+        "killjoy": "portraits/edits/Edits_Killjoy.png",
+        "cypher": "portraits/Email_0_M0_PortraitCypher_DF.png",
+        "sage": "portraits/Email_0_M0_PortraitSage_DF.png",
+        "reyna": "portraits/edits/Edits_Reyna.png",
+        "skye": "portraits/edits/Edits_Skye.png",
+        "yoru": "portraits/edits/Edits_Yoru.png",
+        "astra": "portraits/edits/Edits_Astra.png",
+        "kayo": "portraits/edits/Edits_KAYO.png",
+        "chamber": "portraits/edits/Edits_Chamber.png",
+        "om": "portraits/TX_Oran_Portrait.png",
+        "rp": "portraits/TX_Ruben_Portrait.png",
+        "ap": "portraits/TX_BitterRose_Emblem.png",
+        "drs": "portraits/TX_Santos_Portrait.png",
+        "ks": "portraits/TX_KSEC_Emblem.png",
+        "sa": "portraits/Email_0_M0_PortraitAdmin_DF.png"
+    }
+}
