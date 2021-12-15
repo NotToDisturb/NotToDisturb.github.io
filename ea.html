@@ -170,8 +170,11 @@
         }
 
         function toClipboard() {
-            var canvas = document.getElementById("result");
-            canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})]));
+            async function copy() {
+                var canvas = document.getElementById("result");
+                canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})]));
+            }
+            copy();
         }
     </script>
 </body>
