@@ -26,7 +26,6 @@ html {
   z-index: -1;
 
   display: block;
-  background-image: url("assets/background.png");
   background-size:cover;
   width: 110%;
   height: 110%;
@@ -36,4 +35,12 @@ html {
   -o-filter: blur(10px);
   -ms-filter: blur(10px);
   filter: blur(10px);
+}
+
+.main::before {
+  background-image: url("assets/main-background.png");
+}
+
+.error::before {
+  background-image: url("assets/error-background.png");
 }
