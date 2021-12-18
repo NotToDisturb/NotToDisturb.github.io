@@ -7,15 +7,6 @@ function loaded() {
     xhr.open("GET", "config.json");
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            var show_canvas = document.getElementById("show")
-            show_canvas.width = Math.min(700, window.innerWidth * 0.9);
-            if(show_canvas.width == 700){
-                show_canvas.height = 350
-            }
-            else{
-                show_canvas.height = 350 * show_canvas.width / 700
-            }
-
             var configText = "";
             configText = xhr.responseText;
             config = JSON.parse(configText);
@@ -23,11 +14,24 @@ function loaded() {
             portrait = config.portraits.viper;
             processTemplate();
             processPortrait();
-            buildEmail();
-            redraw();
+            resizeCanvas();
+            window.addEventListener("resize", resizeCanvas, false);
         }
     }
     xhr.send();
+}
+
+function resizeCanvas(){
+    var show_canvas = document.getElementById("show")
+    show_canvas.width = Math.min(700, window.innerWidth * 0.9);
+    if(show_canvas.width == 700){
+        show_canvas.height = 350
+    }
+    else{
+        show_canvas.height = 350 * show_canvas.width / 700
+    }
+    buildEmail();
+    redraw();
 }
 
 function processTemplate() {
