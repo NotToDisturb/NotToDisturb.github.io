@@ -85,7 +85,7 @@ function buildEmail() {
         ctx.fillText("Generated using disturbo.me", 640, 330);
         var result_canvas = document.getElementById("result"),
             result_ctx = result_canvas.getContext("2d");
-        ctx.clearRect(0, 0, result_canvas.width, result_canvas.height);
+        result_ctx.clearRect(0, 0, result_canvas.width, result_canvas.height);
         result_ctx.drawImage(canvas, 0, 0, result_canvas.width, result_canvas.height);
     };
     template_img.src = template;
