@@ -1,3 +1,7 @@
+html {
+    color: white;
+}
+
 @font-face {
     font-family: "DINNext-Regular";
     src: url("fonts/DINNextCYR-Regular.otf");
@@ -8,26 +12,28 @@
     src: url("fonts/DINNextCYR-Light.woff");
 }
 
-html {
-    color: white;
-}
-
-.background {
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    display: block;
-    background-image: url("assets/background_blurred.png");
-    width: 100%;
-    height: 100%;
-}
-
 .content {
+  /* remove background offset at the top */
+  overflow: auto;
+  position: relative;
+}
+
+.content::before {
+  content: "";
   position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  margin-left: 20px;
-  margin-right: 20px;
+  top: -5%;
+  left: -5%;
+  z-index: -1;
+
+  display: block;
+  background-image: url("assets/background.png");
+  background-size:cover;
+  width: 110%;
+  height: 110%;
+
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
 }
