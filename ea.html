@@ -16,7 +16,7 @@
             <tr>
                 <td>Template</td>
                 <td>
-                    <select id="template" onchange="processTemplate();buildEmail()">
+                    <select id="template" onchange="processTemplate();buildEmailEA()">
                         <option value="valorant">VALORANT</option>
                         <option value="alpha">Alpha</option>
                         <option value="omega">Omega</option>
@@ -26,7 +26,7 @@
             <tr>
                 <td>Portrait</td>
                 <td>
-                    <select id="portrait" onchange="processPortrait();buildEmail()">
+                    <select id="portrait" onchange="processPortrait();buildEmailEA()">
                         <option value="viper">Viper</option>
                         <option value="killjoy">Killjoy *</option>
                         <option value="cypher">Cypher</option>
@@ -48,26 +48,28 @@
             </tr>
             <tr>
                 <td>Sender</td>
-                <td><input type="text" id="sender" maxlength="35" size="61" onchange="buildEmail()"></td>
+                <td><input type="text" id="sender" maxlength="35" size="61" onchange="buildEmailEA()"></td>
             </tr>
             <tr>
                 <td>Receiver</td>
-                <td><input type="text" id="receiver" maxlength="35" size="61" onchange="buildEmail()"></td>
+                <td><input type="text" id="receiver" maxlength="35" size="61" onchange="buildEmailEA()"></td>
             </tr>
             <tr>
                 <td>Title</td>
-                <td><input type="text" id="title" maxlength="35" size="61" onchange="buildEmail()"></td>
+                <td><input type="text" id="title" maxlength="35" size="61" onchange="buildEmailEA()"></td>
             </tr>
             <tr>
                 <td>Date</td>
-                <td><input type="text" id="date" maxlength="8" size="12" onchange="buildEmail()"></td>
+                <td><input type="text" id="date" maxlength="8" size="12" onchange="buildEmailEA()"></td>
             </tr>
             <tr>
                 <td>Body</td>
-                <td><textarea id="body" style="resize: none;" cols="64" rows="8" onchange="buildEmail()"></textarea></td>
+                <td><textarea id="body" style="resize: none;" cols="64" rows="8" onchange="buildEmailEA()"></textarea></td>
             </tr>
         </table>
-        <div style="margin: 20px 10px"><canvas id="result" width="700" height="350"></canvas></div>
+        <div style="margin: 20px 10px">
+            <canvas hidden id="result" width="700" height="350"></canvas>
+            <canvas id="show" width="700" height="350"></canvas></div>
         <div>
             <button onclick="download()">Download email!</button>
         </div>
