@@ -62,7 +62,6 @@ function buildEmail() {
     portrait_img.onload = function() {
         canvas.width = 700;
         canvas.height = 350;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(template_img, 0, 0, 700, 350);
         ctx.drawImage(portrait_img, 21, 64, 67, 75);
         ctx.font = "21px DINNext-Light";
@@ -86,6 +85,7 @@ function buildEmail() {
         ctx.fillText("Generated using disturbo.me", 640, 330);
         var result_canvas = document.getElementById("result"),
             result_ctx = result_canvas.getContext("2d");
+        ctx.clearRect(0, 0, result_canvas.width, result_canvas.height);
         result_ctx.drawImage(canvas, 0, 0, result_canvas.width, result_canvas.height);
     };
     template_img.src = template;
