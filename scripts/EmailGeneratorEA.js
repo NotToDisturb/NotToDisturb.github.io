@@ -13,9 +13,8 @@ function loaded() {
                 show_canvas.height = 350
             }
             else{
-                var canvas_height = 350 * show_canvas.width / 700
+                show_canvas.height = 350 * show_canvas.width / 700
             }
-            show_canvas.height = window.innerHeight;
 
             var configText = "";
             configText = xhr.responseText;
