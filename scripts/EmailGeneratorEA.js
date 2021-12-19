@@ -24,7 +24,6 @@ function loaded() {
 function resizeCanvas(){
     var show_canvas = document.getElementById("show");
     show_canvas.width = Math.min(700, window.innerWidth * 0.9);
-    console.log(window.innerWidth * 0.9);
     if(show_canvas.width == 700){
         show_canvas.height = 350;
     }
@@ -106,9 +105,10 @@ function buildEmail() {
 }
 
 function download() {
-    var canvas = document.getElementById("result"), link;
+    var canvas = document.getElementById("result"),
+        title = document.getElementById("result");
     canvas.toBlob(function(blob){
-        saveAs(blob, "email.png");
+        saveAs(blob, title.value + " - disturbo.me.png");
         link = URL.createObjectURL(blob);
         console.log(blob);
         console.log(link);

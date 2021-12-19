@@ -1,25 +1,32 @@
 {
     "templates": {
-        "valorant": "templates/Email_0_M0_TemplateA_DF.png",
-        "alpha": "templates/TX_KA_Email.png",
-        "omega": "templates/TX_KO_Email.png"
+        "valorant": "assets/templates/Email_0_M0_TemplateA_DF.png",
+        "alpha": "assets/templates/TX_KA_Email.png",
+        "omega": "assets/templates/TX_KO_Email.png"
     },
     "portraits": {
-        "viper": "portraits/Email_0_M0_PortraitViper_DF.png",
-        "killjoy": "portraits/edits/Edits_Killjoy.png",
-        "cypher": "portraits/Email_0_M0_PortraitCypher_DF.png",
-        "sage": "portraits/Email_0_M0_PortraitSage_DF.png",
-        "reyna": "portraits/edits/Edits_Reyna.png",
-        "skye": "portraits/edits/Edits_Skye.png",
-        "yoru": "portraits/edits/Edits_Yoru.png",
-        "astra": "portraits/edits/Edits_Astra.png",
-        "kayo": "portraits/edits/Edits_KAYO.png",
-        "chamber": "portraits/edits/Edits_Chamber.png",
-        "om": "portraits/TX_Oran_Portrait.png",
-        "rp": "portraits/TX_Ruben_Portrait.png",
-        "ap": "portraits/TX_BitterRose_Emblem.png",
-        "drs": "portraits/TX_Santos_Portrait.png",
-        "ks": "portraits/TX_KSEC_Emblem.png",
-        "sa": "portraits/Email_0_M0_PortraitAdmin_DF.png"
+        "brimstone": "assets/portraits/edits/Edits_Brimstone.png",
+        "viper": "assets/portraits/Email_0_M0_PortraitViper_DF.png",
+        "omen": "assets/portraits/edits/Edits_Omen.png",
+        "killjoy": "assets/portraits/edits/Edits_Killjoy.png",
+        "cypher": "assets/portraits/Email_0_M0_PortraitCypher_DF.png",
+        "sova": "assets/portraits/edits/Edits_Sova.png",
+        "sage": "assets/portraits/Email_0_M0_PortraitSage_DF.png",
+        "phoenix": "assets/portraits/edits/Edits_Phoenix.png",
+        "jett": "assets/portraits/edits/Edits_Jett.png",
+        "reyna": "assets/portraits/edits/Edits_Reyna.png",
+        "raze": "assets/portraits/edits/Edits_Raze.png",
+        "breach": "assets/portraits/edits/Edits_Breach.png",
+        "skye": "assets/portraits/edits/Edits_Skye.png",
+        "yoru": "assets/portraits/edits/Edits_Yoru.png",
+        "astra": "assets/portraits/edits/Edits_Astra.png",
+        "kayo": "assets/portraits/edits/Edits_KAYO.png",
+        "chamber": "assets/portraits/edits/Edits_Chamber.png",
+        "om": "assets/portraits/TX_Oran_Portrait.png",
+        "rp": "assets/portraits/TX_Ruben_Portrait.png",
+        "ap": "assets/portraits/TX_BitterRose_Emblem.png",
+        "drs": "assets/portraits/TX_Santos_Portrait.png",
+        "ks": "assets/portraits/TX_KSEC_Emblem.png",
+        "sa": "assets/portraits/Email_0_M0_PortraitAdmin_DF.png"
     }
 }
