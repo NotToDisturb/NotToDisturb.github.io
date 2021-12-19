@@ -15,7 +15,7 @@ function loaded() {
             processTemplate();
             processPortrait();
             resizeCanvas();
-            window.addEventListener("onresize", resizeCanvas, false);
+            window.addEventListener("resize", resizeCanvas, false);
         }
     }
     xhr.send();
