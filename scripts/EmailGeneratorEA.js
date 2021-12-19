@@ -15,23 +15,23 @@ function loaded() {
             processTemplate();
             processPortrait();
             resizeCanvas();
-            window.addEventListener("resize", resizeCanvas, false);
+            window.addEventListener("onresize", resizeCanvas, false);
         }
     }
     xhr.send();
 }
 
 function resizeCanvas(){
-    var show_canvas = document.getElementById("show")
+    var show_canvas = document.getElementById("show");
     show_canvas.width = Math.min(700, window.innerWidth * 0.9);
+    console.log(window.innerWidth * 0.9);
     if(show_canvas.width == 700){
-        show_canvas.height = 350
+        show_canvas.height = 350;
     }
     else{
-        show_canvas.height = 350 * show_canvas.width / 700
+        show_canvas.height = 350 * show_canvas.width / 700;
     }
     buildEmail();
-    redraw();
 }
 
 function processTemplate() {
