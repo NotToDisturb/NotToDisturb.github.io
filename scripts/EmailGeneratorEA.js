@@ -106,7 +106,7 @@ function buildEmail() {
 
 function download() {
     var canvas = document.getElementById("result"),
-        title = document.getElementById("result");
+        title = document.getElementById("title");
     canvas.toBlob(function(blob){
         saveAs(blob, title.value + " - disturbo.me.png");
         link = URL.createObjectURL(blob);
