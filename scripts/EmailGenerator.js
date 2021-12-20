@@ -3,21 +3,34 @@ var template = "";
 var portrait = "";
 
 function loaded() {
-    var xhr = new XMLHttpRequest(),
-        configText = "";
+    var xhr = new XMLHttpRequest();
     xhr.open("GET", "config.json");
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
+            var configText = "";
             configText = xhr.responseText;
             config = JSON.parse(configText);
             template = config.templates.valorant;
             portrait = config.portraits.viper;
             processTemplate();
             processPortrait();
-            buildEmail();
+            resizeCanvas();
+            window.addEventListener("resize", resizeCanvas, false);
         }
     }
     xhr.send();
+}
+
+function resizeCanvas(){
+    var show_canvas = document.getElementById("show");
+    show_canvas.width = Math.min(700, window.innerWidth * 0.9);
+    if(show_canvas.width == 700){
+        show_canvas.height = 350;
+    }
+    else{
+        show_canvas.height = 350 * show_canvas.width / 700;
+    }
+    buildEmail();
 }
 
 function processTemplate() {
@@ -54,7 +67,7 @@ function fillMultilineText(context, text, x, y, maxWidth, lineHeight) {
 function buildEmail() {
     var template_img = new Image(),
         portrait_img = new Image(),
-        canvas = document.createElement("canvas"),
+        canvas = document.getElementById("result"),
         ctx = canvas.getContext("2d");
     template_img.onload = function() {
         portrait_img.src = portrait;
@@ -83,18 +96,19 @@ function buildEmail() {
         ctx.font = "9px DINNext-Light";
         ctx.textAlign = "end";
         ctx.fillText("Generated using disturbo.me", 640, 330);
-        var result_canvas = document.getElementById("result"),
-            result_ctx = result_canvas.getContext("2d");
-        result_ctx.clearRect(0, 0, result_canvas.width, result_canvas.height);
-        result_ctx.drawImage(canvas, 0, 0, result_canvas.width, result_canvas.height);
+        var show_canvas = document.getElementById("show"),
+            show_ctx = show_canvas.getContext("2d");
+        show_ctx.clearRect(0, 0, show_canvas.width, show_canvas.height);
+        show_ctx.drawImage(canvas, 0, 0, show_canvas.width, show_canvas.height);
     };
     template_img.src = template;
 }
 
 function download() {
-    var canvas = document.getElementById("result"), link;
+    var canvas = document.getElementById("result"),
+        title = document.getElementById("title");
     canvas.toBlob(function(blob){
-        saveAs(blob, "email.png");
+        saveAs(blob, title.value + " - disturbo.me.png");
         link = URL.createObjectURL(blob);
         console.log(blob);
         console.log(link);

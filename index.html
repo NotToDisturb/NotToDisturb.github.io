@@ -14,6 +14,9 @@
         gtag('config', 'G-P4P5HCX3GM');
     </script>
     <script type="text/javascript" src="scripts/FileSaver.js"></script>
+    <meta http-equiv="content-language" content="en">
+    <meta name="description" content="Quick and easy to use tool to create emails like the ones in VALORANT.">
+    <meta name="keywords" content="valorant, emails, agents">
 </head>
 <body onload="loaded()">
 <div style="font-family: DINNext-Light"></div>
@@ -35,22 +38,33 @@
                 <td>Portrait</td>
                 <td>
                     <select id="portrait" onchange="processPortrait();buildEmail()">
-                        <option value="viper">Viper</option>
-                        <option value="killjoy">Killjoy *</option>
-                        <option value="cypher">Cypher</option>
-                        <option value="sage">Sage</option>
-                        <option value="reyna">Reyna *</option>
-                        <option value="skye">Skye *</option>
-                        <option value="yoru">Yoru *</option>
-                        <option value="astra">Astra *</option>
-                        <option value="kayo">KAY/O *</option>
-                        <option value="chamber">Chamber *</option>
-                        <option value="om">Oran McEneff</option>
-                        <option value="rp">Rúben Pontes</option>
-                        <option value="ap">Aurora Pontes</option>
-                        <option value="drs">Dr. Santos</option>
-                        <option value="ks">K-SEC</option>
-                        <option value="sa">Admin</option>
+                        <optgroup label="VALORANT">
+                            <option value="brimstone">Brimstone *</option>
+                            <option value="viper">Viper</option>
+                            <option value="omen">Omen *</option>
+                            <option value="killjoy">Killjoy *</option>
+                            <option value="cypher">Cypher</option>
+                            <option value="sova">Sova *</option>
+                            <option value="sage">Sage</option>
+                            <option value="phoenix">Phoenix *</option>
+                            <option value="jett">Jett *</option>
+                            <option value="reyna">Reyna *</option>
+                            <option value="raze">Raze *</option>
+                            <option value="breach">Breach *</option>
+                            <option value="skye">Skye *</option>
+                            <option value="yoru">Yoru *</option>
+                            <option value="astra">Astra *</option>
+                            <option value="kayo">KAY/O *</option>
+                            <option value="chamber">Chamber *</option>
+                        </optgroup>
+                        <optgroup label="Fracture">
+                            <option value="om">Oran McEneff</option>
+                            <option value="rp">Rúben Pontes</option>
+                            <option value="ap">Aurora Pontes</option>
+                            <option value="drs">Dr. Santos</option>
+                            <option value="ks">K-SEC</option>
+                            <option value="sa">Admin</option>
+                        </optgroup>
                     </select>
                 </td>
             </tr>
@@ -75,10 +89,13 @@
                 <td><textarea id="body" style="resize: none;" cols="64" rows="8" onchange="buildEmail()"></textarea></td>
             </tr>
         </table>
-        <div style="margin: 20px 10px"><canvas id="result" width="700" height="350"></canvas></div>
+        <div style="margin: 20px 10px">
+            <canvas hidden id="result" width="700" height="350"></canvas>
+            <canvas id="show" width="700" height="350"></canvas></div>
         <div>
             <button onclick="download()">Download email!</button>
         </div>
+        <div style="margin: 0px 0px 40px 0px"></div>
     </center>
 </div>
 <script type="text/javascript" src="scripts/EmailGenerator.js"></script>

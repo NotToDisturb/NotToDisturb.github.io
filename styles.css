@@ -46,3 +46,7 @@ html, body {
 .error::before {
   background-image: url("assets/error-background.png");
 }
+
+.portrait-group {
+  font-style: normal;
+}
