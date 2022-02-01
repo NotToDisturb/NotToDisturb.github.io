@@ -16,7 +16,7 @@
         "jett": "assets/portraits/edits/Edits_Jett.png",
         "reyna": "assets/portraits/edits/Edits_Reyna.png",
         "raze": "assets/portraits/edits/Edits_Raze.png",
-        "breach": "assets/portraits/edits/Edits_Breach.png",
+        "breach": "assets/portraits/Email_0_M0_PortraitBreach_DF.png",
         "skye": "assets/portraits/edits/Edits_Skye.png",
         "yoru": "assets/portraits/edits/Edits_Yoru.png",
         "astra": "assets/portraits/Email_0_M0_PortraitAstra_DF.png",
@@ -28,6 +28,7 @@
         "ap": "assets/portraits/TX_BitterRose_Emblem.png",
         "drs": "assets/portraits/TX_Santos_Portrait.png",
         "ks": "assets/portraits/TX_KSEC_Emblem.png",
-        "sa": "assets/portraits/Email_0_M0_PortraitAdmin_DF.png"
+        "sa": "assets/portraits/Email_0_M0_PortraitAdmin_DF.png",
+        "mysterya": "assets/portraits/Email_0_M0_PortraitMysteryA_DF.png"
     }
 }
