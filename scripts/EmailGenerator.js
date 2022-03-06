@@ -2,8 +2,36 @@ var config = {};
 var template = "";
 var portrait = "";
 
-function loaded() {
+function loaded(){
     var xhr = new XMLHttpRequest();
+    get_navbar(xhr);
+}
+
+function get_navbar(xhr){
+    xhr.open("GET", "navbar.html");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            navbar = document.getElementById("navbar");
+            navbar.innerHTML = xhr.responseText;
+            get_footer(xhr);
+        }
+    }
+    xhr.send();
+}
+
+function get_footer(xhr){
+    xhr.open("GET", "footer.html");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            footage = document.getElementById("footer");
+            footage.innerHTML = xhr.responseText;
+            get_config(xhr)
+        }
+    }
+    xhr.send();
+}
+
+function get_config(xhr){
     xhr.open("GET", "config.json");
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -11,7 +39,7 @@ function loaded() {
             configText = xhr.responseText;
             config = JSON.parse(configText);
             template = config.templates.valorant;
-            portrait = config.portraits.viper;
+            portrait = config.email_portraits.viper;
             processTemplate();
             processPortrait();
             resizeCanvas();
@@ -38,7 +66,7 @@ function processTemplate() {
 }
 
 function processPortrait() {
-    portrait = config.portraits[document.getElementById("portrait").value]
+    portrait = config.email_portraits[document.getElementById("portrait").value]
 }
 
 function fillMultilineText(context, text, x, y, maxWidth, lineHeight) {
@@ -76,7 +104,7 @@ function buildEmail() {
         canvas.width = 700;
         canvas.height = 350;
         ctx.drawImage(template_img, 0, 0, 700, 350);
-        ctx.drawImage(portrait_img, 21, 64, 67, 75);
+        ctx.drawImage(portrait_img, 21, 63, 67, 75);
         ctx.font = "21px DINNext-Light";
         ctx.fillStyle = "white";
         ctx.textAlign = "start";
@@ -85,7 +113,7 @@ function buildEmail() {
         ctx.fillText(document.getElementById("date").value, 658, 34);
         ctx.textAlign = "start";
         ctx.font = "17px DINNext-Light";
-        fillMultilineText(ctx, document.getElementById("body").value, 103, 96, 493, 21);
+        fillMultilineText(ctx, document.getElementById("body").value, 103, 96, 490, 21);
         ctx.font = "13px DINNext-Light";
         ctx.fillText("INBOX", 495, 34);
         ctx.fillText("REPLY", 164, 301);

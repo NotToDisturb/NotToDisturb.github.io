@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dossier Generator | Disturbo's corner</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/icon.png">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4P5HCX3GM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P4P5HCX3GM');
+    </script>
+    <script type="text/javascript" src="scripts/FileSaver.js"></script>
+    <meta http-equiv="content-language" content="en">
+    <meta name="description" content="Quick and easy to use tool to create emails like the ones in VALORANT, from those in Fracture to the ones in The Range.">
+    <meta name="keywords" content="valorant, email, agent, generator, fracture">
+</head>
+<body onload="loaded()">
+    <div style="font-family: DINNext-Light"></div>
+    <div style="font-family: DINNext-Bold"></div>
+    <div class="content main" style="font-family: DINNext-Regular">
+        <div id="navbar"></div>
+        <div style="margin-top:52px">
+            <center>
+                <h1 style="padding-top:35px">VALORANT Dossier Generator</h1>
+                <table>
+                    <tr>
+                        <td>Portrait</td>
+                        <td>
+                            <select id="portrait" onchange="processPortrait();buildDossier()">
+                                <option value="brimstone">Brimstone</option>
+                                <option value="viper">Viper</option>
+                                <option value="omen">Omen</option>
+                                <option value="killjoy">Killjoy</option>
+                                <option value="cypher">Cypher</option>
+                                <option value="sova">Sova</option>
+                                <option value="sage">Sage</option>
+                                <option value="raze">Raze </option>
+                                <option value="breach">Breach</option>
+                                <option value="skye">Skye</option>
+                                <option value="chamber">Chamber</option>
+                                <option value="neon">Neon</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Title</td>
+                        <td><input type="text" id="title" size="61" placeholder="Only used for naming the downloaded file"></td>
+                    </tr>
+                    <tr>
+                        <td>Header</td>
+                        <td><textarea id="header" cols="64" rows="3" onchange="buildDossier()"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Body</td>
+                        <td><textarea id="body" style="resize: none;" cols="64" rows="8" onchange="buildDossier()"></textarea></td>
+                    </tr>
+                </table>
+                <div style="margin: 20px 10px">
+                    <canvas hidden id="result" width="700" height="350"></canvas>
+                    <canvas id="show" width="700" height="350"></canvas></div>
+                <div>
+                    <button onclick="download()">Download dossier!</button>
+                </div>
+                <div style="margin: 0px 0px 40px 0px"></div>
+            </center>
+        </div>
+    </div>
+    <div id="footer"></div>
+    <script type="text/javascript" src="scripts/DossierGenerator.js"></script>
+</body>
+</html>

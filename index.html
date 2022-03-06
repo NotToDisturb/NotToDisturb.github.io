@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>VALORANT Email Generator</title>
+    <title>Disturbo's corner</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
@@ -15,93 +15,35 @@
     </script>
     <script type="text/javascript" src="scripts/FileSaver.js"></script>
     <meta http-equiv="content-language" content="en">
-    <meta name="description" content="Quick and easy to use tool to create emails like the ones in VALORANT, from those in Fracture to the ones in The Range.">
-    <meta name="keywords" content="valorant, email, agent, generator, fracture">
+    <meta name="description" content="A collection of image generators for VALORANT">
+    <meta name="keywords" content="valorant, email, dossier, agent, generator, fracture, range">
 </head>
 <body onload="loaded()">
-<div style="font-family: DINNext-Light"></div>
-<div class="content main" style="font-family: DINNext-Regular">
-    <center>
-        <h1>VALORANT Email Generator</h1>
-        <table>
-            <tr>
-                <td>Template</td>
-                <td>
-                    <select id="template" onchange="processTemplate();buildEmail()">
-                        <option value="valorant">VALORANT</option>
-                        <option value="alpha">Alpha</option>
-                        <option value="omega">Omega</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Portrait</td>
-                <td>
-                    <select id="portrait" onchange="processPortrait();buildEmail()">
-                        <optgroup class="portrait-group" label="VALORANT">
-                            <option value="brimstone">Brimstone *</option>
-                            <option value="viper">Viper</option>
-                            <option value="omen">Omen *</option>
-                            <option value="killjoy">Killjoy *</option>
-                            <option value="cypher">Cypher</option>
-                            <option value="sova">Sova *</option>
-                            <option value="sage">Sage</option>
-                            <option value="phoenix">Phoenix *</option>
-                            <option value="jett">Jett *</option>
-                            <option value="reyna">Reyna *</option>
-                            <option value="raze">Raze *</option>
-                            <option value="breach">Breach</option>
-                            <option value="skye">Skye *</option>
-                            <option value="yoru">Yoru *</option>
-                            <option value="astra">Astra</option>
-                            <option value="kayo">KAY/O *</option>
-                            <option value="chamber">Chamber *</option>
-                            <option value="neon">Neon *</option>
-                        </optgroup>
-                        <optgroup class="portrait-group" label="Fracture">
-                            <option value="om">Oran McEneff</option>
-                            <option value="rp">Rúben Pontes</option>
-                            <option value="ap">Aurora Pontes</option>
-                            <option value="drs">Dr. Santos</option>
-                            <option value="ks">K-SEC</option>
-                            <option value="sa">Admin</option>
-                        </optgroup>
-                        <optgroup class="portrait-group" label="Other">
-                            <option value="mysterya">Mystery A</option>
-                        </optgroup>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Sender</td>
-                <td><input type="text" id="sender" maxlength="35" size="61" onchange="buildEmail()"></td>
-            </tr>
-            <tr>
-                <td>Receiver</td>
-                <td><input type="text" id="receiver" maxlength="35" size="61" onchange="buildEmail()"></td>
-            </tr>
-            <tr>
-                <td>Title</td>
-                <td><input type="text" id="title" maxlength="35" size="61" onchange="buildEmail()"></td>
-            </tr>
-            <tr>
-                <td>Date</td>
-                <td><input type="text" id="date" maxlength="8" size="12" onchange="buildEmail()"></td>
-            </tr>
-            <tr>
-                <td>Body</td>
-                <td><textarea id="body" style="resize: none;" cols="64" rows="8" onchange="buildEmail()"></textarea></td>
-            </tr>
-        </table>
-        <div style="margin: 20px 10px">
-            <canvas hidden id="result" width="700" height="350"></canvas>
-            <canvas id="show" width="700" height="350"></canvas></div>
-        <div>
-            <button onclick="download()">Download email!</button>
-        </div>
-        <div style="margin: 0px 0px 40px 0px"></div>
-    </center>
-</div>
-<script type="text/javascript" src="scripts/EmailGenerator.js"></script>
+    <div style="font-family: DINNext-Light"></div>
+    <div class="content home" style="font-family: DINNext-Regular">
+        <center>
+            <h1 style="padding:35px">Welcome to Disturbo's corner!</h1>
+            <div id="twitter_widget" style="float:right"></div>
+            <table>
+                <tr>
+                    <td>
+                        <a class="index_link" href="/emails">
+                            <center><h3>Email Generator</h3></center>
+                            <img id="email_generator" width="420" height="210" style="padding:0px 20px 20px 0px">
+                        </a>
+                    </td>
+                    <td>
+                        <a class="index_link" href="/dossiers">
+                            <center><h3>Dossier Generator</h3></center>
+                            <img id="dossier_generator" width="420" height="210" style="padding-bottom:20px">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <h2 style="bottom:60px; position:fixed; width:100%">More coming soon...</h2>
+        </center>
+    </div>
+    <div id="footer"></div>
+    <script type="text/javascript" src="scripts/Index.js"></script>
 </body>
 </html>

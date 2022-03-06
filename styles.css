@@ -6,12 +6,22 @@ html, body {
 
 @font-face {
     font-family: "DINNext-Regular";
-    src: url("fonts/DINNextCYR-Regular.otf");
+    src: url("fonts/DINNextCYR-Regular.ttf");
 }
 
 @font-face {
     font-family: "DINNext-Light";
-    src: url("fonts/DINNextCYR-Light.woff");
+    src: url("fonts/DINNextCYR-Light.ttf");
+}
+
+@font-face {
+    font-family: "DINNext-Medium";
+    src: url("fonts/DINNextCYR-Medium.ttf");
+}
+
+@font-face {
+    font-family: "DINNext-Bold";
+    src: url("fonts/DINNextCYR-Bold.ttf");
 }
 
 .content {
@@ -39,6 +49,10 @@ html, body {
   filter: blur(10px);
 }
 
+.home::before {
+  background-image: url("assets/home-background.jpg");
+}
+
 .main::before {
   background-image: url("assets/main-background.png");
 }
@@ -49,4 +63,60 @@ html, body {
 
 .portrait-group {
   font-style: normal;
+}
+
+.navbar {
+  top: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+  list-style-type: none;
+  background-color: #56744b;
+}
+
+.navbar li {
+  float: left;
+  line-height: 32px;
+}
+
+.navbar li a {
+  color: white;
+  display: block;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  background-color: #798a59;
+}
+
+.navbar_link_general {
+  padding: 10px 15px 10px 15px;
+  background-color: #56744b;
+}
+
+.navbar_link_home {
+  padding: 10px 20px 10px 15px;
+  background-color: #3e5336;
+}
+
+.navbar_img {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  padding: 0px 10px 0px 0px;
+}
+
+.footer {
+  bottom: 0;
+  padding: 0;
+  width: 100%;
+  position: fixed;
+  background-color: #31422b90;
+}
+
+.index_link {
+  color: white;
+  text-decoration: none;
 }
