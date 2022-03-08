@@ -91,6 +91,12 @@ html, body {
   background-color: #798a59;
 }
 
+.navbar li a img {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+}
+
 .navbar_link_general {
   padding: 10px 15px 10px 15px;
   background-color: #56744b;
@@ -99,13 +105,6 @@ html, body {
 .navbar_link_home {
   padding: 10px 20px 10px 15px;
   background-color: #3e5336;
-}
-
-.navbar_img {
-  width: 32px;
-  height: 32px;
-  vertical-align: middle;
-  padding: 0px 10px 0px 0px;
 }
 
 .footer {
@@ -119,4 +118,10 @@ html, body {
 .index_link {
   color: white;
   text-decoration: none;
+}
+
+.icon_img {
+  width: 48px;
+  height: 48px;
+  padding: 10px;
 }
