@@ -4,6 +4,10 @@ html, body {
   color: white;
 }
 
+a {
+	color: #798a59;
+}
+
 @font-face {
     font-family: "DINNext-Regular";
     src: url("fonts/DINNextCYR-Regular.ttf");
@@ -50,15 +54,15 @@ html, body {
 }
 
 .home::before {
-  background-image: url("assets/home-background.jpg");
+  background-image: url("assets/backgrounds/home-background.jpg");
 }
 
 .main::before {
-  background-image: url("assets/main-background.png");
+  background-image: url("assets/backgrounds/main-background.png");
 }
 
 .error::before {
-  background-image: url("assets/error-background.png");
+  background-image: url("assets/backgrounds/error-background.png");
 }
 
 .portrait-group {
@@ -118,6 +122,13 @@ html, body {
 .index_link {
   color: white;
   text-decoration: none;
+}
+
+.about_button {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px 10px 15px;
+  background-color: #56744b;
 }
 
 .icon_img {

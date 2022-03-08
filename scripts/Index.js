@@ -11,19 +11,6 @@ function get_footer(xhr){
         if (xhr.readyState == 4 && xhr.status == 200) {
             footage = document.getElementById("footer");
             footage.innerHTML = xhr.responseText;
-            //get_twitter_widget(xhr);
-            get_config(xhr);
-        }
-    }
-    xhr.send();
-}
-
-function get_twitter_widget(xhr) {
-    xhr.open("GET", "twitter_widget.html");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            twitter_widget = document.getElementById("twitter_widget");
-            twitter_widget.innerHTML = xhr.responseText;
             get_config(xhr);
         }
     }
