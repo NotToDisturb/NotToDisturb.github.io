@@ -15,7 +15,6 @@ function getNavbar(){
 function updateNavbarMargin(){
     page_content = document.getElementById("page_content");
     navbar = document.getElementById("navbar_div");
-    console.log(navbar.offsetHeight);
     page_content.style.marginTop = navbar.offsetHeight.toString() + "px";
 }
 
@@ -36,7 +35,6 @@ function getFooter(){
 function updateFooterMargin(){
     page_content = document.getElementById("page_content");
     footer = document.getElementById("footer_div");
-    console.log(footer.offsetHeight);
     page_content.style.marginBottom = footer.offsetHeight.toString() + "px";
 }
 
