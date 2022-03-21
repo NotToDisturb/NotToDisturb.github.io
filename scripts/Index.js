@@ -17,23 +17,12 @@
 var config = {};
 
 function loaded() {
+    getFooter();
+    getConfig();
+}
+
+function getConfig() {
     var xhr = new XMLHttpRequest();
-    get_footer(xhr)
-}
-
-function get_footer(xhr){
-    xhr.open("GET", "footer.html");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            footage = document.getElementById("footer");
-            footage.innerHTML = xhr.responseText;
-            get_config(xhr);
-        }
-    }
-    xhr.send();
-}
-
-function get_config(xhr) {
     xhr.open("GET", "config.json");
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
