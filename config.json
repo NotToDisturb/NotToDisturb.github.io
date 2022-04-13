@@ -6,7 +6,7 @@
         "dossier": "assets/templates/Email_1_M0_DossierBGA_DF.png"
     },
     "email_portraits": {
-        "brimstone": "assets/portraits/emails/edits/Edits_Brimstone.png",
+        "brimstone": "assets/portraits/emails/Email_0_M0_PortraitBrimstone_DF.png",
         "viper": "assets/portraits/emails/Email_0_M0_PortraitViper_DF.png",
         "omen": "assets/portraits/emails/edits/Edits_Omen.png",
         "killjoy": "assets/portraits/emails/edits/Edits_Killjoy.png",
@@ -44,6 +44,12 @@
         "breach": "assets/portraits/dossiers/Email_1_M0_DossierPortraitBreach_DF.png",
         "skye": "assets/portraits/dossiers/Email_1_M0_DossierPortraitSkye_DF.png",
         "chamber": "assets/portraits/dossiers/Email_1_M0_DossierPortraitChamber_DF.png",
-        "neon": "assets/portraits/dossiers/Email_1_M0_DossierPortraitNeon_DF.png"
+        "neon": "assets/portraits/dossiers/Email_1_M0_DossierPortraitNeon_DF.png",
+        "reyna": "assets/portraits/dossiers/Email_1_M0_DossierPortraitReyna_DF.png",
+        "astra": "assets/portraits/dossiers/Email_1_M0_DossierPortraitAstra_DF.png",
+        "jett": "assets/portraits/dossiers/Email_1_M0_DossierPortraitJett_DF.png",
+        "kayo": "assets/portraits/dossiers/Email_1_M0_DossierPortraitKayo_DF.png",
+        "yoru": "assets/portraits/dossiers/Email_1_M0_DossierPortraitYoru_DF.png",
+        "phoenix": "assets/portraits/dossiers/Email_1_M0_DossierPortraitPhoenix_DF.png"
     }
 }
