@@ -55,25 +55,31 @@ along with this program.  If not, see http://www.gnu.org/licenses/-->
                         <td>Portrait</td>
                         <td>
                             <select id="portrait" onchange="processPortrait();buildDossier()">
-                                <option value="astra">Astra</option>
-                                <option value="breach">Breach</option>
-                                <option value="brimstone">Brimstone</option>
-                                <option value="chamber">Chamber</option>
-                                <option value="cypher">Cypher</option>
-                                <option value="jett">Jett</option>
-                                <option value="kayo">KAY/O</option>
-                                <option value="killjoy">Killjoy</option>
-                                <option value="neon">Neon</option>
-                                <option value="omen">Omen</option>
-                                <option value="phoenix">Phoenix</option>
-                                <option value="raze">Raze </option>
-                                <option value="reyna">Reyna</option>
-                                <option value="sage">Sage</option>
-                                <option value="skye">Skye</option>
-                                <option value="sova">Sova</option>
-                                <option value="viper">Viper</option>
-                                <option value="yoru">Yoru</option>
+                                <optgroup class="portrait-group" label="VALORANT">
+                                    <option value="astra">Astra</option>
+                                    <option value="breach">Breach</option>
+                                    <option value="brimstone">Brimstone</option>
+                                    <option value="chamber">Chamber</option>
+                                    <option value="cypher">Cypher</option>
+                                    <option value="jett">Jett</option>
+                                    <option value="kayo">KAY/O</option>
+                                    <option value="killjoy">Killjoy</option>
+                                    <option value="neon">Neon</option>
+                                    <option value="omen">Omen</option>
+                                    <option value="phoenix">Phoenix</option>
+                                    <option value="raze">Raze </option>
+                                    <option value="reyna">Reyna</option>
+                                    <option value="sage">Sage</option>
+                                    <option value="skye">Skye</option>
+                                    <option value="sova">Sova</option>
+                                    <option value="viper">Viper</option>
+                                    <option value="yoru">Yoru</option>
+                                </optgroup>
+                                <optgroup class="portrait-group" label="Other">
+                                    <option value="custom">Custom</option>
+                                </optgroup>
                             </select>
+                            <button id="custom_portrait" style="display: none" onclick="openCustomPortraitPicker()">Select a custom portrait...</button>
                         </td>
                     </tr>
                     <tr>

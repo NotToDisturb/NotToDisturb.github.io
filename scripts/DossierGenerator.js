@@ -54,7 +54,29 @@ function resizeCanvas(){
 }
 
 function processPortrait() {
-    portrait = config.dossier_portraits[document.getElementById("portrait").value]
+    if(document.getElementById("portrait").value == "custom"){
+        document.getElementById("custom_portrait").style = "display: inline-block";
+    }
+    else{
+        document.getElementById("custom_portrait").style = "display: none";
+        portrait = config.dossier_portraits[document.getElementById("portrait").value];
+    }
+}
+
+function openCustomPortraitPicker() {
+    var customPortrait = document.createElement('input');
+    customPortrait.type = 'file';
+    customPortrait.onchange = event => {
+       var file = event.target.files[0];
+       var reader = new FileReader();
+       reader.readAsDataURL(file);
+       reader.onload = readerEvent => {
+           portrait = readerEvent.target.result;
+           buildDossier();
+       }
+
+    }
+    customPortrait.click();
 }
 
 function fillMultilineText(context, text, x, y, maxWidth, lineHeight) {
