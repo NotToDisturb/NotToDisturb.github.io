@@ -24,14 +24,15 @@
         "skye": "assets/portraits/emails/edits/Edits_Skye.png",
         "sova": "assets/portraits/emails/Email_0_M0_PortraitSova_DF.png",
         "viper": "assets/portraits/emails/Email_0_M0_PortraitViper_DF.png",
-        "yoru": "assets/portraits/emails/edits/Edits_Yoru.png",
+        "yoru": "assets/portraits/emails/Email_0_M0_PortraitYoru_DF.png",
         "om": "assets/portraits/emails/TX_Oran_Portrait.png",
         "rp": "assets/portraits/emails/TX_Ruben_Portrait.png",
         "ap": "assets/portraits/emails/TX_BitterRose_Emblem.png",
         "drs": "assets/portraits/emails/TX_Santos_Portrait.png",
         "ks": "assets/portraits/emails/TX_KSEC_Emblem.png",
         "sa": "assets/portraits/emails/Email_0_M0_PortraitAdmin_DF.png",
-        "mysterya": "assets/portraits/emails/Email_0_M0_PortraitMysteryA_DF.png"
+        "greaves": "assets/portraits/emails/Email_0_M0_PortraitGreaves_DF.png",
+        "mystery": "assets/portraits/emails/Email_0_M0_PortraitMysteryA_DF.png"
     },
     "dossier_portraits": {
         "astra": "assets/portraits/dossiers/Email_1_M0_DossierPortraitAstra_DF.png",
