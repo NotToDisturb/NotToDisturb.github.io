@@ -30,7 +30,7 @@ function getConfig() {
             configText = xhr.responseText;
             config = JSON.parse(configText);
             document.getElementById("email_generator").src = config.templates.valorant;
-            document.getElementById("dossier_generator").src = config.templates.dossier;
+            document.getElementById("dossier_generator").src = config.templates.fade_dossier;
         }
     }
     xhr.send();
