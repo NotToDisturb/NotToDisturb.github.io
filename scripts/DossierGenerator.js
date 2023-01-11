@@ -170,7 +170,7 @@ function drawAtlasDossier(ctx){
     fillMultilineText(ctx, document.getElementById("body").value, 290, 51, 400, 20);
 }
 
-function download() {
+function downloadDossier() {
     var canvas = document.getElementById("result"),
         title = document.getElementById("title");
     canvas.toBlob(function(blob){

@@ -148,7 +148,7 @@ function buildEmail() {
     template_img.src = template;
 }
 
-function download() {
+function downloadEmail() {
     var canvas = document.getElementById("result"),
         title = document.getElementById("title");
     canvas.toBlob(function(blob){
