@@ -49,85 +49,94 @@ along with this program.  If not, see http://www.gnu.org/licenses/-->
                 <div style="margin-bottom: 30px; background-color:#0f192390">
                     <h1 style="padding:30px 0px 30px 0px; margin:0px">VALORANT Email Generator</h1>
                 </div>
-                <table>
-                    <tr>
-                        <td>Template</td>
-                        <td>
-                            <select id="template" onchange="processTemplate();buildEmail()">
-                                <option value="valorant">VALORANT</option>
-                                <option value="alpha">Alpha</option>
-                                <option value="omega">Omega</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Portrait</td>
-                        <td>
-                            <select id="portrait" onchange="processPortrait();buildEmail()">
-                                <optgroup class="portrait-group" label="VALORANT">
-                                    <option value="astra">Astra</option>
-                                    <option value="breach">Breach</option>
-                                    <option value="brimstone">Brimstone</option>
-                                    <option value="chamber">Chamber</option>
-                                    <option value="cypher">Cypher</option>
-                                    <option value="fade">Fade</option>
-                                    <option value="jett">Jett</option>
-                                    <option value="kayo">KAY/O *</option>
-                                    <option value="killjoy">Killjoy</option>
-                                    <option value="neon">Neon *</option>
-                                    <option value="omen">Omen *</option>
-                                    <option value="phoenix">Phoenix *</option>
-                                    <option value="raze">Raze *</option>
-                                    <option value="reyna">Reyna</option>
-                                    <option value="sage">Sage</option>
-                                    <option value="skye">Skye *</option>
-                                    <option value="sova">Sova</option>
-                                    <option value="viper">Viper</option>
-                                    <option value="yoru">Yoru</option>
-                                </optgroup>
-                                <optgroup class="portrait-group" label="Fracture">
-                                    <option value="om">Oran McEneff</option>
-                                    <option value="rp">Rúben Pontes</option>
-                                    <option value="ap">Aurora Pontes</option>
-                                    <option value="drs">Dr. Santos</option>
-                                    <option value="ks">K-SEC</option>
-                                    <option value="sa">Admin</option>
-                                </optgroup>
-                                <optgroup class="portrait-group" label="Other">
-                                    <option value="greaves">Cpt. Greaves</option>
-                                    <option value="mystery">Mystery</option>
-                                    <option value="custom">Custom</option>
-                                </optgroup>
-                            </select>
-                            <button id="custom_portrait" style="display: none" onclick="openCustomPortraitPicker()">Select a custom portrait...</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Sender</td>
-                        <td><input type="text" id="sender" maxlength="35" size="61" oninput="buildEmail()"></td>
-                    </tr>
-                    <tr>
-                        <td>Receiver</td>
-                        <td><input type="text" id="receiver" maxlength="35" size="61" oninput="buildEmail()"></td>
-                    </tr>
-                    <tr>
-                        <td>Title</td>
-                        <td><input type="text" id="title" maxlength="35" size="61" oninput="buildEmail()"></td>
-                    </tr>
-                    <tr>
-                        <td>Date</td>
-                        <td><input type="text" id="date" maxlength="8" size="12" oninput="buildEmail()"></td>
-                    </tr>
-                    <tr>
-                        <td>Body</td>
-                        <td><textarea id="body" style="resize: none;" cols="64" rows="8" oninput="buildEmail()"></textarea></td>
-                    </tr>
-                </table>
-                <div style="margin: 20px 10px">
-                    <canvas hidden id="result" width="700" height="350"></canvas>
-                    <canvas id="show" width="700" height="350"></canvas></div>
                 <div>
-                    <button onclick="download()">Download email!</button>
+                    <div style="display: inline-block; vertical-align: middle">
+                        <table>
+                            <tr>
+                                <td>Template</td>
+                                <td>
+                                    <select id="template" onchange="processTemplate();buildEmail()">
+                                        <option value="valorant">VALORANT</option>
+                                        <option value="k-corp">Kingdom Corp.</option>
+                                        <option value="k-ind">Kingdom Ind.</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Portrait</td>
+                                <td>
+                                    <select id="portrait" onchange="processPortrait();buildEmail()">
+                                        <optgroup class="portrait-group" label="VALORANT">
+                                            <option value="astra">Astra</option>
+                                            <option value="breach">Breach</option>
+                                            <option value="brimstone">Brimstone</option>
+                                            <option value="chamber">Chamber</option>
+                                            <option value="cypher">Cypher</option>
+                                            <option value="fade">Fade</option>
+                                            <option value="harbor">Harbor *</option>
+                                            <option value="jett">Jett</option>
+                                            <option value="kayo">KAY/O *</option>
+                                            <option value="killjoy">Killjoy</option>
+                                            <option value="neon">Neon *</option>
+                                            <option value="omen">Omen *</option>
+                                            <option value="phoenix">Phoenix *</option>
+                                            <option value="raze">Raze *</option>
+                                            <option value="reyna">Reyna</option>
+                                            <option value="sage">Sage</option>
+                                            <option value="skye">Skye</option>
+                                            <option value="sova">Sova</option>
+                                            <option value="viper">Viper</option>
+                                            <option value="yoru">Yoru</option>
+                                        </optgroup>
+                                        <optgroup class="portrait-group" label="Fracture">
+                                            <option value="om">Oran McEneff</option>
+                                            <option value="rp">Rúben Pontes</option>
+                                            <option value="ap">Aurora Pontes</option>
+                                            <option value="drs">Dr. Santos</option>
+                                            <option value="ks">K-SEC</option>
+                                            <option value="sa">Admin</option>
+                                        </optgroup>
+                                        <optgroup class="portrait-group" label="Other">
+                                            <option value="greaves">Cpt. Greaves</option>
+                                            <option value="mystery">Mystery</option>
+                                            <option value="empty">No portrait</option>
+                                            <option value="custom">Custom</option>
+                                        </optgroup>
+                                    </select>
+                                    <button id="custom_portrait" style="display: none" onclick="openCustomPortraitPicker()">Select a custom portrait...</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sender</td>
+                                <td><input type="text" id="sender" maxlength="35" size="61" oninput="buildEmail()"></td>
+                            </tr>
+                            <tr>
+                                <td>Receiver</td>
+                                <td><input type="text" id="receiver" maxlength="35" size="61" oninput="buildEmail()"></td>
+                            </tr>
+                            <tr>
+                                <td>Title</td>
+                                <td><input type="text" id="title" maxlength="35" size="61" oninput="buildEmail()"></td>
+                            </tr>
+                            <tr>
+                                <td>Date</td>
+                                <td><input type="text" id="date" maxlength="8" size="12" oninput="buildEmail()"></td>
+                            </tr>
+                            <tr>
+                                <td>Body</td>
+                                <td><textarea id="body" style="resize: none;" cols="64" rows="8" oninput="buildEmail()"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="display: inline-block; padding-right: 100px"></div>
+                    <div style="display: inline-block; vertical-align: middle">
+                        <div style="margin: 20px 10px">
+                            <canvas hidden id="result" width="700" height="350"></canvas>
+                            <canvas id="show" width="700" height="350"></canvas></div>
+                        <div>
+                            <a class="stylized_button" onclick="download()">Download email!</a>
+                        </div>
+                    </div>
                 </div>
                 <div style="margin: 0px 0px 40px 0px"></div>
             </center>

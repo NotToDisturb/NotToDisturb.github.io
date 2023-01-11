@@ -1,9 +1,10 @@
 {
     "templates": {
         "valorant": "assets/templates/Email_0_M0_TemplateA_DF.png",
-        "alpha": "assets/templates/TX_KA_Email.png",
-        "omega": "assets/templates/TX_KO_Email.png",
-        "dossier": "assets/templates/Email_1_M0_DossierBGA_DF.png"
+        "k-corp": "assets/templates/TX_KA_Email.png",
+        "k-ind": "assets/templates/TX_KO_Email.png",
+        "fade_dossier": "assets/templates/Email_1_M0_DossierBGA_DF.png",
+        "atlas_dossier": "assets/templates/TEX_Atlas_Email_BG.png"
     },
     "email_portraits": {
         "astra": "assets/portraits/emails/Email_0_M0_PortraitAstra_DF.png",
@@ -12,6 +13,7 @@
         "chamber": "assets/portraits/emails/Email_0_M0_PortraitChamber_DF.png",
         "cypher": "assets/portraits/emails/Email_0_M0_PortraitCypher_DF.png",
         "fade": "assets/portraits/emails/Email_0_M0_PortraitFade_DF.png",
+        "harbor": "assets/portraits/emails/edits/Edits_Harbor.png", 
         "jett": "assets/portraits/emails/Email_0_M0_PortraitJett_DF.png",
         "kayo": "assets/portraits/emails/edits/Edits_KAYO.png",
         "killjoy": "assets/portraits/emails/Email_0_M0_PortraitKilljoy_DF.png",
@@ -21,7 +23,7 @@
         "raze": "assets/portraits/emails/edits/Edits_Raze.png",
         "reyna": "assets/portraits/emails/Email_0_M0_PortraitReyna_DF.png",
         "sage": "assets/portraits/emails/Email_0_M0_PortraitSage_DF.png",
-        "skye": "assets/portraits/emails/edits/Edits_Skye.png",
+        "skye": "assets/portraits/emails/Email_0_M0_PortraitSkye_DF.png",
         "sova": "assets/portraits/emails/Email_0_M0_PortraitSova_DF.png",
         "viper": "assets/portraits/emails/Email_0_M0_PortraitViper_DF.png",
         "yoru": "assets/portraits/emails/Email_0_M0_PortraitYoru_DF.png",
@@ -32,7 +34,8 @@
         "ks": "assets/portraits/emails/TX_KSEC_Emblem.png",
         "sa": "assets/portraits/emails/Email_0_M0_PortraitAdmin_DF.png",
         "greaves": "assets/portraits/emails/Email_0_M0_PortraitGreaves_DF.png",
-        "mystery": "assets/portraits/emails/Email_0_M0_PortraitMysteryA_DF.png"
+        "mystery": "assets/portraits/emails/Email_0_M0_PortraitMysteryA_DF.png",
+        "empty": "assets/portraits/emails/edits/Edits_Empty.png"
     },
     "dossier_portraits": {
         "astra": "assets/portraits/dossiers/Email_1_M0_DossierPortraitAstra_DF.png",
@@ -52,6 +55,7 @@
         "skye": "assets/portraits/dossiers/Email_1_M0_DossierPortraitSkye_DF.png",
         "sova": "assets/portraits/dossiers/Email_1_M0_DossierPortraitSova_DF.png",
         "viper": "assets/portraits/dossiers/Email_1_M0_DossierPortraitViper_DF.png",
-        "yoru": "assets/portraits/dossiers/Email_1_M0_DossierPortraitYoru_DF.png"
+        "yoru": "assets/portraits/dossiers/Email_1_M0_DossierPortraitYoru_DF.png",
+        "empty": "assets/portraits/dossiers/edits/Edits_Empty.png"
     }
 }

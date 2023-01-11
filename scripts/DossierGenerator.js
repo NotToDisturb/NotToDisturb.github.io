@@ -17,6 +17,7 @@
 var config = {};
 var template = "";
 var portrait = "";
+var last_portrait = "";
 
 function loaded(){
     getNavbar();
@@ -32,6 +33,7 @@ function getConfig(){
             var configText = "";
             configText = xhr.responseText;
             config = JSON.parse(configText);
+            template = config.templates.fade_dossier;
             portrait = config.dossier_portraits.viper;
             processPortrait();
             resizeCanvas();
@@ -51,6 +53,20 @@ function resizeCanvas(){
         show_canvas.height = 350 * show_canvas.width / 700;
     }
     buildDossier();
+}
+
+function processTemplate() {
+    template = config.templates[document.getElementById("template").value]
+
+    if(document.getElementById("template").value == "atlas_dossier"){
+        document.getElementById("portrait_row").style = "display: none";
+        last_portrait = portrait;
+        portrait = config.dossier_portraits.empty;
+    }
+    else{
+        document.getElementById("portrait_row").style = "display: table-row";
+        portrait = last_portrait;
+    }
 }
 
 function processPortrait() {
@@ -79,7 +95,7 @@ function openCustomPortraitPicker() {
     customPortrait.click();
 }
 
-function fillMultilineText(context, text, x, y, maxWidth, lineHeight) {
+function fillMultilineText(ctx, text, x, y, maxWidth, lineHeight) {
     var replacement = text.replaceAll("\n", "\n ");
     var words = replacement.split(" ");
     if(words.length == 0){
@@ -88,10 +104,10 @@ function fillMultilineText(context, text, x, y, maxWidth, lineHeight) {
     var line = words[0];
     for(var n = 1; n < words.length; n++) {
         var testLine = line + " " + words[n];
-        var metrics = context.measureText(testLine);
+        var metrics = ctx.measureText(testLine);
         var testWidth = metrics.width;
         if (testWidth > maxWidth || line.endsWith("\n")) {
-            context.fillText(line, x, y);
+            ctx.fillText(line, x, y);
             line = words[n];
             y += lineHeight;
         }
@@ -99,37 +115,59 @@ function fillMultilineText(context, text, x, y, maxWidth, lineHeight) {
             line = testLine;
         }
     }
-    context.fillText(line, x, y);
+    ctx.fillText(line, x, y);
 }
 
 function buildDossier() {
     var template_img = new Image(),
-        portrait_img = new Image(),
-        canvas = document.getElementById("result"),
-        ctx = canvas.getContext("2d");
+        portrait_img = new Image();
+
     template_img.onload = function() {
         portrait_img.src = portrait;
     };
+
     portrait_img.onload = function() {
+        var canvas = document.getElementById("result"),
+            ctx = canvas.getContext("2d"),
+            show_canvas = document.getElementById("show"),
+            show_ctx = show_canvas.getContext("2d");
+
         canvas.width = 700;
         canvas.height = 350;
         ctx.drawImage(template_img, 0, 0, 700, 350);
         ctx.drawImage(portrait_img, 28, 24, 236, 221);
-        ctx.fillStyle = "#a0a0a0";
-        ctx.textAlign = "start";
-        ctx.font = "12px DINNext-Bold";
-        fillMultilineText(ctx, document.getElementById("header").value, 51, 273, 175, 15);
-        ctx.font = "13px DINNext-Regular";
-        fillMultilineText(ctx, document.getElementById("body").value, 266, 62, 365, 18);
+        if(document.getElementById("template").value == "fade_dossier"){
+            drawFadeDossier(ctx);
+        }
+        if(document.getElementById("template").value == "atlas_dossier"){
+            drawAtlasDossier(ctx);
+        }
         ctx.font = "9px DINNext-Light";
         ctx.textAlign = "end";
         ctx.fillText("Generated using disturbo.me", 640, 330);
-        var show_canvas = document.getElementById("show"),
-            show_ctx = show_canvas.getContext("2d");
         show_ctx.clearRect(0, 0, show_canvas.width, show_canvas.height);
         show_ctx.drawImage(canvas, 0, 0, show_canvas.width, show_canvas.height);
     };
-    template_img.src = config.templates.dossier;
+    template_img.src = template;
+}
+
+function drawFadeDossier(ctx){
+    ctx.fillStyle = "#a0a0a0";
+    ctx.textAlign = "start";
+    ctx.font = "12px DINNext-Bold";
+    fillMultilineText(ctx, document.getElementById("header").value, 51, 273, 175, 15);
+    ctx.font = "13px DINNext-Regular";
+    fillMultilineText(ctx, document.getElementById("body").value, 266, 62, 365, 18);
+}
+
+function drawAtlasDossier(ctx){
+    ctx.textAlign = "start";
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "13px DINNext-Regular";
+    fillMultilineText(ctx, document.getElementById("header").value, 53, 242, 175, 16);
+    ctx.fillStyle = "#c8ccc2";
+    ctx.font = "17px DINNext-Regular";
+    fillMultilineText(ctx, document.getElementById("body").value, 290, 51, 400, 20);
 }
 
 function download() {
