@@ -1,11 +1,11 @@
 html, body {
-  width:  100%;
-  margin: 0;
-  color: white;
+    width:  100%;
+    margin: 0;
+    color: white;
 }
 
 a {
-	color: #c7d55c;
+	  color: #c7d55c;
 }
 
 @font-face {
@@ -29,110 +29,129 @@ a {
 }
 
 .content {
-  /* remove background offset at the top */
-  overflow: auto;
-  position: relative;
+    /* remove background offset at the top */
+    overflow: auto;
+    position: relative;
 }
 
 .content::before {
-  content: "";
-  position: fixed;
-  top: -5%;
-  left: -5%;
-  z-index: -1;
+    content: "";
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    z-index: -1;
 
-  display: block;
-  background-size:cover;
-  width: 110%;
-  height: 110%;
+    display: block;
+    background-size:cover;
+    width: 110%;
+    height: 110%;
 
-  -webkit-filter: blur(10px);
-  -moz-filter: blur(10px);
-  -o-filter: blur(10px);
-  -ms-filter: blur(10px);
-  filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
 }
 
 .home::before {
-  background-image: url("assets/backgrounds/home-background.jpg");
+    background-image: url("assets/backgrounds/home-background.jpg");
 }
 
 .main::before {
-  background-image: url("assets/backgrounds/main-background.png");
+    background-image: url("assets/backgrounds/main-background.png");
 }
 
 .error::before {
-  background-image: url("assets/backgrounds/error-background.png");
+    background-image: url("assets/backgrounds/error-background.png");
 }
 
 .portrait-group {
-  font-style: normal;
+    font-style: normal;
 }
 
 .navbar {
-  top: 0;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  width: 100%;
-  position: fixed;
-  list-style-type: none;
-  background-color: #56744b;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    list-style-type: none;
+    background-color: #56744b;
 }
 
 .navbar li {
-  float: left;
-  line-height: 32px;
+    float: left;
+    line-height: 32px;
 }
 
 .navbar li a {
-  color: white;
-  display: block;
-  text-decoration: none;
+    color: white;
+    display: block;
+    text-decoration: none;
 }
 
 .navbar li a:hover {
-  background-color: #798a59;
+    background-color: #798a59;
 }
 
 .navbar li a img {
-  width: 32px;
-  height: 32px;
-  vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
 }
 
 .navbar_link_general {
-  padding: 10px 15px 10px 15px;
-  background-color: #56744b;
+    padding: 10px 15px 10px 15px;
+    background-color: #56744b;
 }
 
 .navbar_link_home {
-  padding: 10px 20px 10px 15px;
-  background-color: #3e5336;
+    padding: 10px 20px 10px 15px;
+    background-color: #3e5336;
 }
 
 .footer {
-  bottom: 0;
-  padding: 0;
-  width: 100%;
-  position: fixed;
-  background-color: #31422b90;
+    bottom: 0;
+    padding: 0;
+    width: 100%;
+    position: fixed;
+    background-color: #31422b90;
 }
 
 .index_link {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 .stylized_button {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px 10px 15px;
-  background-color: #56744b;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px 10px 15px;
+    background-color: #56744b;
 }
 
-.icon_img {
-  width: 48px;
-  height: 48px;
-  padding: 10px;
+.index_social_icons {
+    bottom: 40px;
+    right: 15px;
+    position: fixed;
 }
+
+.index_social_icon {
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+}
+
+.text_over_image_container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.text_over_image_centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
