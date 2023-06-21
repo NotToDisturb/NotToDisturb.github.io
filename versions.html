@@ -1,0 +1,70 @@
+<!-- VALORANT Email and Dossier generator
+Copyright (C) 2022 Disturbo
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see http://www.gnu.org/licenses/-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Version Utils | Disturbo's corner</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/icons/icon.png">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4P5HCX3GM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P4P5HCX3GM');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8952572710252215"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/FileSaver.js"></script>
+    <script type="text/javascript" src="scripts/ModuleLoader.js"></script>
+    <meta http-equiv="content-language" content="en">
+    <meta property="og:image" content="assets/icons/icon.png">
+    <meta name="description" content="Quick and easy to use tool to create emails like the ones in VALORANT, from those in Fracture to the ones in The Range.">
+    <meta name="keywords" content="valorant, email, agent, generator, fracture">
+    <meta name="theme-color" content="#56744b">
+    <meta author="Disturbo">
+</head>
+<body onload="loaded()">
+    <div style="font-family: DINNext-Light"></div>
+    <div class="content main" style="font-family: DINNext-Regular">
+        <div id="navbar"></div>
+        <div id="page_content">
+            <center>
+                <div style="margin-bottom: 30px; background-color:#0f192390">
+                    <h1 style="padding:30px 0px 30px 0px; margin:0px">VALORANT Version Utils</h1>
+                </div>
+                <div>
+                    <p><b>Get VALORANT version manifests</b></p>
+                    <div><input type="checkbox" id="accept_release" checked="true" onclick="updateManifests()"> Release versions <input type="checkbox" id="accept_pbe" onclick="updateManifests()"> PBE versions</div>
+                    <div>VALORANT version <input type="text" id="manifest_version" maxlength="10" size="20" oninput="updateManifests()"></div>
+                    <div><textarea readonly id="manifests" style="resize: none;" cols="64" rows="8"></textarea></div>
+                    <div style="margin: 0px 0px 60px 0px"></div>
+                    <p><b>UModel and FModel version for VALORANT version</b></p>
+                    <div>VALORANT version <input type="text" id="datamine_version" maxlength="10" size="20" oninput="updateUEVersion()"></div>
+                    <div><textarea readonly id="datamine" style="resize: none;" cols="48" rows="2"></textarea></div>
+                </div>
+                <div style="margin: 0px 0px 40px 0px"></div>
+            </center>
+        </div>
+    </div>
+    <div id="footer"></div>
+    <script type="text/javascript" src="scripts/ModuleLoader.js"></script>
+    <script type="text/javascript" src="scripts/VersionUtils.js"></script>
+</body>
+</html>
