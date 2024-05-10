@@ -30,7 +30,7 @@ function getConfig(config){
     xhr.send();
 }
 
-function updateManifests(){
+function updateVersionQueries(){
     branches = [];
     if (document.getElementById("accept_release").checked){
         branches.push("release");
@@ -38,12 +38,8 @@ function updateManifests(){
     if (document.getElementById("accept_pbe").checked){
         branches.push("pbe");
     }
-    version = document.getElementById("manifest_version").value;
+    version = document.getElementById("valorant_version").value;
     document.getElementById("manifests").value = getManifests(version, branches);
-}
-
-function updateUEVersion(){
-    version = document.getElementById("datamine_version").value;
     document.getElementById("datamine").value = getUEVersion(version);
 }
 
@@ -69,7 +65,7 @@ function getUEVersion(version) {
         ueVersion = versionData[versionOrder[idx]]
         console.log(versionOrder[idx])
         if (isVersionNewer(version, versionOrder[idx])){
-            return "Unreal Engine version:    " + ueVersion.unreal_engine + "\nUModel version:           " + ueVersion.umodel + "\nFModel version:           " + ueVersion.fmodel;
+            return "Unreal Engine version:    " + ueVersion.unreal_engine + "\nFModel version:           " + ueVersion.fmodel;
         }
     }
 }
