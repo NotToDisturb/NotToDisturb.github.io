@@ -89,6 +89,7 @@
             "x": "assets/soh-script/unk.png",
             "y": "assets/soh-script/y.png",
             "z": "assets/soh-script/unk.png",
+            " ": "assets/soh-script/space.png",
             "unk": "assets/soh-script/unk.png"
         }
     }
