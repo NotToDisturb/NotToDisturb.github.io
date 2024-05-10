@@ -17,7 +17,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Version Utils | Disturbo's corner</title>
+    <title>SoH Script Translator | Disturbo's corner</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
@@ -35,8 +35,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/-->
     <script type="text/javascript" src="scripts/ModuleLoader.js"></script>
     <meta http-equiv="content-language" content="en">
     <meta property="og:image" content="assets/icons/icon.png">
-    <meta name="description" content="Simple tool to get manifests and other version data for VALORANT datamining.">
-    <meta name="keywords" content="valorant, manifests, datamining">
+    <meta name="description" content="Simple tool to translate to and from the Scions of Hourglass symbols">
+    <meta name="keywords" content="valorant, lore, cipher">
     <meta name="theme-color" content="#56744b">
     <meta author="Disturbo">
 </head>
@@ -47,20 +47,20 @@ along with this program.  If not, see http://www.gnu.org/licenses/-->
         <div id="page_content">
             <center>
                 <div style="margin-bottom: 30px; background-color:#0f192390">
-                    <h1 style="padding:30px 0px 30px 0px; margin:0px">VALORANT Version Utils</h1>
+                    <h1 style="padding:30px 0px 30px 0px; margin:0px">Scions of Hourglass Script Translator</h1>
                 </div>
                 <div>
-                    <div><b>Query VALORANT version:</b> <input type="text" id="valorant_version" maxlength="10" size="20" oninput="updateVersionQueries()"></div>
-                    <div style="margin: 0px 0px 30px 0px"></div>
-                    <p><b>Manifests for VALORANT versions</b></p>
-                    <div><input type="checkbox" id="accept_release" checked="true" onclick="updateManifests()"> Release versions <input type="checkbox" id="accept_pbe" onclick="updateVersionQueries()"> PBE versions</div>
-                    <div><textarea readonly id="manifests" style="resize: none;" cols="64" rows="8"></textarea></div>
-                    <div style="margin: 0px 0px 30px 0px"></div>
-                    <p><b>FModel game for VALORANT version</b></p>
-                    <div><textarea readonly id="datamine" style="resize: none;" cols="48" rows="1"></textarea></div>
-                    <div style="margin: 0px 0px 60px 0px"></div>
-                    <p><b>VALORANT AES key</b></p>
-                    <p>0x4BE71AF2459CF83899EC9DC2CB60E22AC4B3047E0211034BBABE9D174C069DD6</p>
+                    <div style="display: inline-block; vertical-align: middle">
+                        <p>English alphabet to SoH script</p>
+                        <p><input type="text" id="from_english" maxlength="25" size="30" oninput="updateEnglishToSoH()"></p>
+                        <canvas hidden id="result" width="700" height="100"></canvas>
+                        <canvas id="show" width="700" height="100"></canvas>
+                    </div>
+                    <div style="display: inline-block; padding-right: 100px"></div>
+                    <div style="display: inline-block; vertical-align: middle">
+                        <p>SoH script to English alphabet</p>
+                        <h1>WIP</h1>
+                    </div>
                 </div>
                 <div style="margin: 0px 0px 40px 0px"></div>
             </center>
@@ -68,6 +68,6 @@ along with this program.  If not, see http://www.gnu.org/licenses/-->
     </div>
     <div id="footer"></div>
     <script type="text/javascript" src="scripts/ModuleLoader.js"></script>
-    <script type="text/javascript" src="scripts/VersionUtils.js"></script>
+    <script type="text/javascript" src="scripts/SoHScript.js"></script>
 </body>
 </html>

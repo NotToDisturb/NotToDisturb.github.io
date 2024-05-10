@@ -60,5 +60,13 @@
         "viper": "assets/portraits/dossiers/Email_1_M0_DossierPortraitViper_DF.png",
         "yoru": "assets/portraits/dossiers/Email_1_M0_DossierPortraitYoru_DF.png",
         "empty": "assets/portraits/dossiers/edits/Edits_Empty.png"
+    },
+    "soh_script": {
+        "letters": {
+            "a": "assets/soh-script/a.png",
+            "b": "assets/soh-script/b.png",
+            "c": "assets/soh-script/c.png",
+            "d": "assets/soh-script/d.png"
+        }
     }
 }
