@@ -66,7 +66,30 @@
             "a": "assets/soh-script/a.png",
             "b": "assets/soh-script/b.png",
             "c": "assets/soh-script/c.png",
-            "d": "assets/soh-script/d.png"
+            "d": "assets/soh-script/d.png",
+            "e": "assets/soh-script/c.png",
+            "f": "assets/soh-script/c.png",
+            "g": "assets/soh-script/c.png",
+            "h": "assets/soh-script/c.png",
+            "i": "assets/soh-script/c.png",
+            "j": "assets/soh-script/unk.png",
+            "k": "assets/soh-script/unk.png",
+            "l": "assets/soh-script/c.png",
+            "m": "assets/soh-script/c.png",
+            "n": "assets/soh-script/c.png",
+            "o": "assets/soh-script/c.png",
+            "p": "assets/soh-script/c.png",
+            "q": "assets/soh-script/unk.png",
+            "r": "assets/soh-script/c.png",
+            "s": "assets/soh-script/c.png",
+            "t": "assets/soh-script/c.png",
+            "u": "assets/soh-script/c.png",
+            "v": "assets/soh-script/c.png",
+            "w": "assets/soh-script/unk.png",
+            "x": "assets/soh-script/unk.png",
+            "y": "assets/soh-script/c.png",
+            "z": "assets/soh-script/c.png",
+            "unk": "assets/soh-script/unk.png"
         }
     }
 }
