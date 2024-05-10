@@ -1,8 +1,7 @@
-const MAX_ASSET_WIDTH = 200;
 const MAX_ASSET_HEIGHT = 300;
 const ASSET_GAP = 5;
 const CANVAS_WIDTH = 700;
-const CANVAS_HEIGHT = 50;
+const CANVAS_HEIGHT = 40;
 
 var config = {};
 var sohAssets = {}
@@ -52,7 +51,7 @@ function updateEnglishToSoH() {
         show_ctx = show_canvas.getContext("2d");
     canvas.width = CANVAS_WIDTH;
     canvas.height = CANVAS_HEIGHT;
-    var accumulativeWidth = 0;
+    var cumulativeWidth = ASSET_GAP;
     for(var n = 0; n < english.length; n++) {
         lowercase = english[n].toLowerCase();
         var sohAsset = lowercase in sohAssets ? sohAssets[lowercase] : sohAssets["unk"];
@@ -60,9 +59,9 @@ function updateEnglishToSoH() {
         var heightRatio = sohAsset.naturalHeight / MAX_ASSET_HEIGHT;
         var effectiveHeight = CANVAS_HEIGHT * heightRatio;
         var effectiveWidth = effectiveHeight * sizeRatio;
-        ctx.drawImage(sohAsset, accumulativeWidth, 0, effectiveWidth, effectiveHeight);
-        accumulativeWidth += effectiveWidth + ASSET_GAP;
+        ctx.drawImage(sohAsset, cumulativeWidth, (CANVAS_HEIGHT - effectiveHeight) / 2, effectiveWidth, effectiveHeight);
+        cumulativeWidth += effectiveWidth + ASSET_GAP;
     }
     show_ctx.clearRect(0, 0, show_canvas.width, show_canvas.height);
-    show_ctx.drawImage(canvas, 0, 0, show_canvas.width, show_canvas.height);
+    show_ctx.drawImage(canvas, (CANVAS_WIDTH - cumulativeWidth) / 2, 0, show_canvas.width, show_canvas.height);
 }
