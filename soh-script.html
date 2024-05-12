@@ -35,12 +35,21 @@
                 </div>
                 <div>
                     <div style="vertical-align: middle">
-                        <input type="checkbox" id="include_speculative" onclick="toggleIncludeSpeculative()">Include speculative symbols</input>
-                        <p><input type="text" id="from_english" maxlength="50" size="70" oninput="drawSoHSymbols()"></p>
-                        <div>
+                        <div style="display: inline-block; text-align: left;">
+                            This tool allows you to translate:
+                            <ul>
+                                <li>English text to SoH script by typing into the text box below</li>
+                                <li>SoH script to English text by pressing the different symbols</li>
+                            </ul>
+                            Additionally, although not all letters have known symbols, this tool provides a speculated version.<br/>
+                            You can toggle this with the checkbox below and any letters that are speculative are marked with an asterisk.
+                        </div>
+                        <p><input type="checkbox" id="include_speculative" onclick="toggleIncludeSpeculative()">Include speculative symbols</input></p>
+                        <p><input type="text" id="from_english" maxlength="50" size="70" oninput="updateEnglishToSoH()"></p>
+                        <div style="padding: 30px 0px 30px 0px;">
                             <canvas style="vertical-align: middle" hidden id="result" width="0" height="40"></canvas>
                             <canvas style="vertical-align: middle" id="show" width="0" height="40"></canvas>
-                            <a class="stylized_button" style="vertical-align: middle" href="" onclick="downloadSymbols(); return false;">Download symbols!</a>
+                            <a id="download_button" class="stylized_button" style="vertical-align: middle" href="" onclick="downloadSymbols(); return false;" hidden>Download symbols!</a>
                         </div>
                         <div id="soh_symbols_alphabet">
                             <p>

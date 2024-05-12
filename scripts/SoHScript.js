@@ -22,7 +22,7 @@ function getConfig() {
             config = JSON.parse(configText);
             loadSoHSymbols(config.soh_script.letters_to_symbols, sohSymbols);
             loadSoHSymbols(config.soh_script.letters_to_speculative_symbols, sohSpeculativeSymbols);
-            toggleIncludeSpeculative();
+            initTranslator();
         }
     }
     xhr.send();
@@ -43,6 +43,11 @@ function loadSoHSymbols(letterToSymbolMap, loadedSymbols) {
         }
     }
     loadedSymbols[fistLetter].src = letterToSymbolMap[fistLetter]
+}
+
+function initTranslator() {
+    toggleIncludeSpeculative();
+    updateDownloadButton();
 }
 
 function getSoHSymbol(letter, include_speculative) {
@@ -96,7 +101,7 @@ function drawSoHSymbols() {
 }
 
 function toggleIncludeSpeculative() {
-    drawSoHSymbols()
+    drawSoHSymbols();
     var includeSpeculative =  document.getElementById("include_speculative").checked;
     document.querySelectorAll(".speculative").forEach(input => {
         input.style.display = includeSpeculative ? "inline-block" : 'none';
@@ -113,6 +118,15 @@ function toggleToSymbolsLayout(layout) {
     }
 }
 
+function updateDownloadButton() {
+    document.getElementById("download_button").hidden = document.getElementById("from_english").value.length == 0;
+}
+
+function updateEnglishToSoH() {
+    updateDownloadButton();
+    drawSoHSymbols();
+}
+
 function updateSoHToEnglish(action, letter) {
     var textInput = document.getElementById("from_english");
     if (action == "add") {
@@ -122,6 +136,7 @@ function updateSoHToEnglish(action, letter) {
     } else {
         textInput.value = ""
     }
+    updateDownloadButton();
     drawSoHSymbols();
 }
 
