@@ -62,7 +62,7 @@
         "empty": "assets/portraits/dossiers/edits/Edits_Empty.png"
     },
     "soh_script": {
-        "letters": {
+        "letters_to_symbols": {
             "a": "assets/soh-script/a.png",
             "b": "assets/soh-script/b.png",
             "c": "assets/soh-script/c.png",
@@ -72,25 +72,27 @@
             "g": "assets/soh-script/g.png",
             "h": "assets/soh-script/h.png",
             "i": "assets/soh-script/i.png",
-            "j": "assets/soh-script/unk.png",
-            "k": "assets/soh-script/unk.png",
             "l": "assets/soh-script/l.png",
             "m": "assets/soh-script/m.png",
             "n": "assets/soh-script/n.png",
             "o": "assets/soh-script/o.png",
             "p": "assets/soh-script/p.png",
-            "q": "assets/soh-script/unk.png",
             "r": "assets/soh-script/r.png",
             "s": "assets/soh-script/s.png",
             "t": "assets/soh-script/t.png",
             "u": "assets/soh-script/u.png",
             "v": "assets/soh-script/v.png",
-            "w": "assets/soh-script/unk.png",
-            "x": "assets/soh-script/unk.png",
             "y": "assets/soh-script/y.png",
-            "z": "assets/soh-script/unk.png",
             " ": "assets/soh-script/space.png",
             "unk": "assets/soh-script/unk.png"
+        },
+        "letters_to_speculative_symbols": {
+            "j": "assets/soh-script/speculative/j.png",
+            "k": "assets/soh-script/speculative/k.png",
+            "q": "assets/soh-script/speculative/q.png",
+            "w": "assets/soh-script/speculative/w.png",
+            "x": "assets/soh-script/speculative/x.png",
+            "z": "assets/soh-script/speculative/z.png"
         }
     }
 }
