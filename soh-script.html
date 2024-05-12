@@ -50,17 +50,93 @@ along with this program.  If not, see http://www.gnu.org/licenses/-->
                     <h1 style="padding:30px 0px 30px 0px; margin:0px">Scions of Hourglass Script Translator</h1>
                 </div>
                 <div>
-                    <div style="display: inline-block; vertical-align: middle">
-                        <p>English alphabet to SoH script</p>
-                        <input type="checkbox" id="include_speculative" onclick="updateEnglishToSoH()">Include speculative symbols</input>
-                        <p><input type="text" id="from_english" maxlength="25" size="30" oninput="updateEnglishToSoH()"></p>
-                        <canvas hidden id="result" width="700" height="40"></canvas>
-                        <canvas id="show" width="700" height="40"></canvas>
-                    </div>
-                    <div style="display: inline-block; padding-right: 100px"></div>
-                    <div style="display: inline-block; vertical-align: middle">
-                        <p>SoH script to English alphabet</p>
-                        <h1>WIP</h1>
+                    <div style="vertical-align: middle">
+                        <input type="checkbox" id="include_speculative" onclick="toggleIncludeSpeculative()">Include speculative symbols</input>
+                        <p><input type="text" id="from_english" maxlength="50" size="70" oninput="drawSoHSymbols()"></p>
+                        <div>
+                            <canvas style="vertical-align: middle" hidden id="result" width="0" height="40"></canvas>
+                            <canvas style="vertical-align: middle" id="show" width="0" height="40"></canvas>
+                            <a class="stylized_button" style="vertical-align: middle" href="" onclick="downloadSymbols(); return false;">Download symbols!</a>
+                        </div>
+                        <div id="soh_symbols_alphabet">
+                            <p>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'a'); return false;"><img src="/assets/soh-script/a.png" class="soh_symbol_img"/> A</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'b'); return false;"><img src="/assets/soh-script/b.png" class="soh_symbol_img"/> B</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'c'); return false;"><img src="/assets/soh-script/c.png" class="soh_symbol_img"/> C</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'd'); return false;"><img src="/assets/soh-script/d.png" class="soh_symbol_img"/> D</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'e'); return false;"><img src="/assets/soh-script/e.png" class="soh_symbol_img"/> E</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'f'); return false;"><img src="/assets/soh-script/f.png" class="soh_symbol_img"/> F</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'g'); return false;"><img src="/assets/soh-script/g.png" class="soh_symbol_img"/> G</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'h'); return false;"><img src="/assets/soh-script/h.png" class="soh_symbol_img"/> H</a>
+                            </p>
+                            <p>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'i'); return false;"><img src="/assets/soh-script/i.png" class="soh_symbol_img"/> I</a>
+                                <a class="soh_symbol_button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', 'j'); return false;"><img src="/assets/soh-script/speculative/j.png" class="soh_symbol_img"/> J*</a>
+                                <a class="soh_symbol_button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', 'k'); return false;"><img src="/assets/soh-script/speculative/k.png" class="soh_symbol_img"/> K*</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'l'); return false;"><img src="/assets/soh-script/l.png" class="soh_symbol_img"/> L</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'm'); return false;"><img src="/assets/soh-script/m.png" class="soh_symbol_img"/> M</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'n'); return false;"><img src="/assets/soh-script/n.png" class="soh_symbol_img"/> N</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'o'); return false;"><img src="/assets/soh-script/o.png" class="soh_symbol_img"/> O</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'p'); return false;"><img src="/assets/soh-script/p.png" class="soh_symbol_img"/> P</a>
+                            </p>
+                            <p>
+                                <a class="soh_symbol_button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', 'q'); return false;"><img src="/assets/soh-script/speculative/q.png" class="soh_symbol_img"/> Q*</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'r'); return false;"><img src="/assets/soh-script/r.png" class="soh_symbol_img"/> R</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 's'); return false;"><img src="/assets/soh-script/s.png" class="soh_symbol_img"/> S</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 't'); return false;"><img src="/assets/soh-script/t.png" class="soh_symbol_img"/> T</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'u'); return false;"><img src="/assets/soh-script/u.png" class="soh_symbol_img"/> U</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'v'); return false;"><img src="/assets/soh-script/v.png" class="soh_symbol_img"/> V</a>
+                                <a class="soh_symbol_button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', 'w'); return false;"><img src="/assets/soh-script/speculative/w.png" class="soh_symbol_img"/> W*</a>
+                                <a class="soh_symbol_button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', 'x'); return false;"><img src="/assets/soh-script/speculative/x.png" class="soh_symbol_img"/> X*</a>
+                            </p>
+                            <p>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'y'); return false;"><img src="/assets/soh-script/y.png" class="soh_symbol_img"/> Y</a>
+                                <a class="soh_symbol_button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', 'z'); return false;"><img src="/assets/soh-script/speculative/z.png" class="soh_symbol_img"/> Z*</a></p>
+                            <p>
+                                <a class="stylized_button" href="" onclick="updateSoHToEnglish('add', ' '); return false;">Space</a>
+                                <a class="stylized_button" href="" onclick="updateSoHToEnglish('remove'); return false;">Remove</a>
+                                <a class="stylized_button" href="" onclick="toggleToSymbolsLayout('qwerty'); return false;">Change to QWERTY layout</a>
+                            </p>
+                        </div>
+                        <div id="soh_symbols_qwerty" style="display: none;">
+                            <p>
+                                <a class="soh_symbol_button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', 'q'); return false;"><img src="/assets/soh-script/speculative/q.png" class="soh_symbol_img"/> Q*</a>
+                                <a class="soh_symbol_button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', 'w'); return false;"><img src="/assets/soh-script/speculative/w.png" class="soh_symbol_img"/> W*</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'e'); return false;"><img src="/assets/soh-script/e.png" class="soh_symbol_img"/> E</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'r'); return false;"><img src="/assets/soh-script/r.png" class="soh_symbol_img"/> R</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 't'); return false;"><img src="/assets/soh-script/t.png" class="soh_symbol_img"/> T</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'y'); return false;"><img src="/assets/soh-script/y.png" class="soh_symbol_img"/> Y</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'u'); return false;"><img src="/assets/soh-script/u.png" class="soh_symbol_img"/> U</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'i'); return false;"><img src="/assets/soh-script/i.png" class="soh_symbol_img"/> I</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'o'); return false;"><img src="/assets/soh-script/o.png" class="soh_symbol_img"/> O</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'p'); return false;"><img src="/assets/soh-script/p.png" class="soh_symbol_img"/> P</a>
+                            </p>
+                            <p>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'a'); return false;"><img src="/assets/soh-script/a.png" class="soh_symbol_img"/> A</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 's'); return false;"><img src="/assets/soh-script/s.png" class="soh_symbol_img"/> S</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'd'); return false;"><img src="/assets/soh-script/d.png" class="soh_symbol_img"/> D</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'f'); return false;"><img src="/assets/soh-script/f.png" class="soh_symbol_img"/> F</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'g'); return false;"><img src="/assets/soh-script/g.png" class="soh_symbol_img"/> G</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'h'); return false;"><img src="/assets/soh-script/h.png" class="soh_symbol_img"/> H</a>
+                                <a class="soh_symbol_button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', 'j'); return false;"><img src="/assets/soh-script/speculative/j.png" class="soh_symbol_img"/> J*</a>
+                                <a class="soh_symbol_button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', 'k'); return false;"><img src="/assets/soh-script/speculative/k.png" class="soh_symbol_img"/> K*</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'l'); return false;"><img src="/assets/soh-script/l.png" class="soh_symbol_img"/> L</a>
+                            </p>
+                            <p>
+                                <a class="soh_symbol_button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', 'z'); return false;"><img src="/assets/soh-script/speculative/z.png" class="soh_symbol_img"/> Z*</a>
+                                <a class="soh_symbol_button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', 'x'); return false;"><img src="/assets/soh-script/speculative/X.png" class="soh_symbol_img"/> X*</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'c'); return false;"><img src="/assets/soh-script/c.png" class="soh_symbol_img"/> C</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'v'); return false;"><img src="/assets/soh-script/v.png" class="soh_symbol_img"/> V</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'b'); return false;"><img src="/assets/soh-script/b.png" class="soh_symbol_img"/> B</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'n'); return false;"><img src="/assets/soh-script/n.png" class="soh_symbol_img"/> N</a>
+                                <a class="soh_symbol_button" href="" onclick="updateSoHToEnglish('add', 'm'); return false;"><img src="/assets/soh-script/m.png" class="soh_symbol_img"/> M</a>
+                            </p>
+                            <p>
+                                <a class="stylized_button" href="" onclick="updateSoHToEnglish('add', ' '); return false;">Space</a>
+                                <a class="stylized_button" href="" onclick="updateSoHToEnglish('remove'); return false;">Remove</a>
+                                <a class="stylized_button" href="" onclick="toggleToSymbolsLayout('alphabet'); return false;">Change to Alphabetical layout</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div style="margin: 0px 0px 40px 0px"></div>

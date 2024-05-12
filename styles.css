@@ -154,4 +154,20 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+}
+
+.soh_symbol_button {
+    display: inline-block;
+    vertical-align: middle;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px 10px 15px;
+    background-color: #56744b;
+    height: 25px;
+}
+
+.soh_symbol_img {
+    vertical-align: middle;
+    max-width: 25px; 
+    max-height: 25px;
+}
