@@ -156,6 +156,13 @@ a {
     transform: translate(-50%, -50%);
 }
 
+.text_over_image_bottom {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .soh_symbol_button {
     display: inline-block;
     vertical-align: middle;

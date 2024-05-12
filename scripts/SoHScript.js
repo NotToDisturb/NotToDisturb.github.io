@@ -117,8 +117,10 @@ function updateSoHToEnglish(action, letter) {
     var textInput = document.getElementById("from_english");
     if (action == "add") {
         textInput.value = textInput.value + letter;
-    } else {
+    } else if (action == "remove") {
         textInput.value = textInput.value.substring(0, textInput.value.length - 1);
+    } else {
+        textInput.value = ""
     }
     drawSoHSymbols();
 }
