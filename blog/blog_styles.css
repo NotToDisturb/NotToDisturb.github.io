@@ -94,19 +94,19 @@
     vertical-align: middle;
 }
 
-.navbar_link_general {
+.navbar-link-general {
     padding: 15px 15px 12px 15px;
     display: inline-block;
     background-color: #56744b;
 }
 
-.navbar_link_home {
+.navbar-link-home {
     padding: 15px 20px 12px 15px;
     display: inline-block;
     background-color: #3e5336
 }
 
-.navbar_link_home img {
+.navbar-link-home img {
     padding: 0px 10px 0px 0px;
     width: 32px;
     height: 32px;

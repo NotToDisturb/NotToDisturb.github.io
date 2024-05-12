@@ -119,7 +119,7 @@ function toggleToSymbolsLayout(layout) {
 }
 
 function updateDownloadButton() {
-    document.getElementById("download_button").hidden = document.getElementById("from_english").value.length == 0;
+    document.getElementById("download-button").hidden = document.getElementById("from_english").value.length == 0;
 }
 
 function updateEnglishToSoH() {

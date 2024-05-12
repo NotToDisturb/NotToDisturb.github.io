@@ -29,7 +29,7 @@
     <div style="font-family: DINNext-Bold"></div>
     <div class="content main" style="font-family: DINNext-Regular">
         <div id="navbar"></div>
-        <div id="page_content">
+        <div id="page-content">
             <center>
                 <div style="margin-bottom: 30px; background-color:#0f192390">
                     <h1 style="padding:30px 0px 30px 0px; margin:0px">VALORANT Dossier Generator</h1>
@@ -40,16 +40,16 @@
                             <tr>
                                 <td>Template</td>
                                 <td>
-                                    <select id="template" onchange="processTemplate();buildDossier()">
+                                    <select id="template-selector" onchange="processTemplate();buildDossier()">
                                         <option value="fade_dossier">Fade</option>
                                         <option value="atlas_dossier">Atlas</option>
                                     </select>
                                 </td>
                             </tr>
-                            <tr id="portrait_row">
+                            <tr id="portrait-row">
                                 <td>Portrait</td>
                                 <td>
-                                    <select id="portrait" onchange="processPortrait();buildDossier()">
+                                    <select id="portrait-selector" onchange="processPortrait();buildDossier()">
                                         <optgroup class="portrait-group" label="VALORANT">
                                             <option value="astra">Astra</option>
                                             <option value="breach">Breach</option>
@@ -75,30 +75,30 @@
                                             <option value="custom">Custom</option>
                                         </optgroup>
                                     </select>
-                                    <button id="custom_portrait" style="display: none" onclick="openCustomPortraitPicker()">Select a custom portrait...</button>
+                                    <button id="custom-portrait-button" style="display: none" onclick="openCustomPortraitPicker()">Select a custom portrait...</button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Title</td>
-                                <td><input type="text" id="title" size="61" placeholder="Only used download as file name"></td>
+                                <td><input type="text" id="title-input" size="61" placeholder="Only used download as file name"></td>
                             </tr>
                             <tr>
                                 <td>Header</td>
-                                <td><textarea id="header" style="resize: none;" cols="64" rows="3" oninput="buildDossier()"></textarea></td>
+                                <td><textarea id="header-input" style="resize: none;" cols="64" rows="3" oninput="buildDossier()"></textarea></td>
                             </tr>
                             <tr>
                                 <td>Body</td>
-                                <td><textarea id="body" style="resize: none;" cols="64" rows="8" oninput="buildDossier()"></textarea></td>
+                                <td><textarea id="body-input" style="resize: none;" cols="64" rows="8" oninput="buildDossier()"></textarea></td>
                             </tr>
                         </table>
                     </div>
                     <div style="display: inline-block; padding-right: 100px"></div>
                     <div style="display: inline-block; vertical-align: middle">
                         <div style="margin: 20px 10px">
-                            <canvas hidden id="result" width="700" height="350"></canvas>
-                            <canvas id="show" width="700" height="350"></canvas></div>
+                            <canvas hidden id="working-canvas" width="700" height="350"></canvas>
+                            <canvas id="show-canvas" width="700" height="350"></canvas></div>
                         <div>
-                            <a class="stylized_button" href="" onclick="downloadDossier(); return false;">Download dossier!</a>
+                            <a class="stylized-button" href="" onclick="downloadDossier(); return false;">Download dossier!</a>
                         </div>
                     </div>
                 </div>

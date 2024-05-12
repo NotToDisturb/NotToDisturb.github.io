@@ -32,38 +32,36 @@ function getConfig(config){
 
 function updateVersionQueries(){
     branches = [];
-    if (document.getElementById("accept_release").checked){
+    if (document.getElementById("release-checkbox").checked){
         branches.push("release");
     }
-    if (document.getElementById("accept_pbe").checked){
+    if (document.getElementById("pbe-checkbox").checked){
         branches.push("pbe");
     }
-    version = document.getElementById("valorant_version").value;
-    document.getElementById("manifests").value = getManifests(version, branches);
-    document.getElementById("datamine").value = getUEVersion(version);
+    version = document.getElementById("valorant-version-input").value;
+    document.getElementById("manifests-textarea").value = getManifests(version, branches);
+    document.getElementById("datamine-textarea").value = getUEVersion(version);
 }
 
 function getManifests(version, branches) {
-    var result = ""
-    versionData = configs.manifests.data
+    var result = "";
+    versionData = configs.manifests.data;
     for (var idx in versionData) {
         if (versionData[idx].version.includes(version) && branches.includes(versionData[idx].branch)) {
             if (result.length > 0){
-                result += ", "
+                result += ", ";
             }
-            result += versionData[idx].manifest
+            result += versionData[idx].manifest;
         }
     }
     return result;
 }
 
 function getUEVersion(version) {
-    versionOrder = configs.ue_versions.data.order
-    versionData = configs.ue_versions.data.data
-    console.log(versionData)
+    versionOrder = configs.ue_versions.data.order;
+    versionData = configs.ue_versions.data.data;
     for (idx in versionOrder) {
-        ueVersion = versionData[versionOrder[idx]]
-        console.log(versionOrder[idx])
+        ueVersion = versionData[versionOrder[idx]];
         if (isVersionNewer(version, versionOrder[idx])){
             return "Unreal Engine version:    " + ueVersion.unreal_engine + "\nFModel version:           " + ueVersion.fmodel;
         }
@@ -73,8 +71,6 @@ function getUEVersion(version) {
 function isVersionNewer(versionA, versionB) {
     var splitVersionA = versionA.split(".");
     var splitVersionB = versionB.split(".");
-    console.log(splitVersionA)
-    console.log(splitVersionB)
     var minVersionLength = Math.min(splitVersionA.length, splitVersionB.length);
     for (var idx = 0; idx < minVersionLength; idx++) {
         if (splitVersionA[idx] == "") {

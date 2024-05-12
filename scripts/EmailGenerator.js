@@ -28,7 +28,7 @@ function getConfig(){
 }
 
 function resizeCanvas(){
-    var show_canvas = document.getElementById("show");
+    var show_canvas = document.getElementById("show-canvas");
     show_canvas.width = Math.min(700, window.innerWidth * 0.9);
     if(show_canvas.width == 700){
         show_canvas.height = 350;
@@ -40,16 +40,16 @@ function resizeCanvas(){
 }
 
 function processTemplate() {
-    template = config.templates[document.getElementById("template").value]
+    template = config.templates[document.getElementById("template-selector").value]
 }
 
 function processPortrait() {
-    if(document.getElementById("portrait").value == "custom"){
-        document.getElementById("custom_portrait").style = "display: inline-block";
+    if(document.getElementById("portrait-selector").value == "custom"){
+        document.getElementById("custom-portrait-button").style = "display: inline-block";
     }
     else{
-        document.getElementById("custom_portrait").style = "display: none";
-        portrait = config.email_portraits[document.getElementById("portrait").value];
+        document.getElementById("custom-portrait-button").style = "display: none";
+        portrait = config.email_portraits[document.getElementById("portrait-selector").value];
     }
 }
 
@@ -95,7 +95,7 @@ function fillMultilineText(context, text, x, y, maxWidth, lineHeight) {
 function buildEmail() {
     var template_img = new Image(),
         portrait_img = new Image(),
-        canvas = document.getElementById("result"),
+        canvas = document.getElementById("working-canvas"),
         ctx = canvas.getContext("2d");
     template_img.onload = function() {
         portrait_img.src = portrait;
@@ -108,23 +108,23 @@ function buildEmail() {
         ctx.font = "21px DINNext-Light";
         ctx.fillStyle = "white";
         ctx.textAlign = "start";
-        ctx.fillText(document.getElementById("title").value, 103, 34);
+        ctx.fillText(document.getElementById("title-input").value, 103, 34);
         ctx.textAlign = "end";
-        ctx.fillText(document.getElementById("date").value, 658, 34);
+        ctx.fillText(document.getElementById("date-input").value, 658, 34);
         ctx.textAlign = "start";
         ctx.font = "17px DINNext-Light";
-        fillMultilineText(ctx, document.getElementById("body").value, 103, 96, 490, 21);
+        fillMultilineText(ctx, document.getElementById("body-input").value, 103, 96, 490, 21);
         ctx.font = "13px DINNext-Light";
         ctx.fillText("INBOX", 495, 34);
         ctx.fillText("REPLY", 164, 301);
         ctx.fillText("FORWARD", 300, 301);
         ctx.fillStyle = "#a0a0a0";
-        ctx.fillText(document.getElementById("sender").value, 103, 73);
-        ctx.fillText(document.getElementById("receiver").value, 389, 300);
+        ctx.fillText(document.getElementById("sender-input").value, 103, 73);
+        ctx.fillText(document.getElementById("receiver-input").value, 389, 300);
         ctx.font = "9px DINNext-Light";
         ctx.textAlign = "end";
         ctx.fillText("Generated using disturbo.me", 640, 330);
-        var show_canvas = document.getElementById("show"),
+        var show_canvas = document.getElementById("show-canvas"),
             show_ctx = show_canvas.getContext("2d");
         show_ctx.clearRect(0, 0, show_canvas.width, show_canvas.height);
         show_ctx.drawImage(canvas, 0, 0, show_canvas.width, show_canvas.height);
@@ -133,8 +133,8 @@ function buildEmail() {
 }
 
 function downloadEmail() {
-    var canvas = document.getElementById("result"),
-        title = document.getElementById("title");
+    var canvas = document.getElementById("working-canvas"),
+        title = document.getElementById("title-input");
     canvas.toBlob(function(blob){
         saveAs(blob, title.value + " - disturbo.me.png");
         link = URL.createObjectURL(blob);

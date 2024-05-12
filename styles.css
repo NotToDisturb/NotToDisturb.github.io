@@ -101,12 +101,12 @@ a {
     vertical-align: middle;
 }
 
-.navbar_link_general {
+.navbar-link-general {
     padding: 10px 15px 10px 15px;
     background-color: #56744b;
 }
 
-.navbar_link_home {
+.navbar-link-home {
     padding: 10px 20px 10px 15px;
     background-color: #3e5336;
 }
@@ -119,51 +119,51 @@ a {
     background-color: #31422b90;
 }
 
-.index_link {
+.index-link {
     color: white;
     text-decoration: none;
 }
 
-.stylized_button {
+.stylized-button {
     color: white;
     text-decoration: none;
     padding: 10px 15px 10px 15px;
     background-color: #56744b;
 }
 
-.index_social_icons {
+.index-social-icons {
     bottom: 40px;
     right: 15px;
     position: fixed;
 }
 
-.index_social_icon {
+.index-social-icon {
     width: 48px;
     height: 48px;
     padding: 10px;
 }
 
-.text_over_image_container {
+.text-over-image-container {
     position: relative;
     text-align: center;
     color: white;
 }
 
-.text_over_image_centered {
+.text-over-image-centered {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.text_over_image_bottom {
+.text-over-image-bottom {
     position: absolute;
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.soh_symbol_button {
+.soh-symbol-button {
     display: inline-block;
     vertical-align: middle;
     color: white;

@@ -28,7 +28,7 @@ function getConfig(){
 }
 
 function resizeCanvas(){
-    var show_canvas = document.getElementById("show");
+    var show_canvas = document.getElementById("show-canvas");
     show_canvas.width = Math.min(700, window.innerWidth * 0.9);
     if(show_canvas.width == 700){
         show_canvas.height = 350;
@@ -42,24 +42,24 @@ function resizeCanvas(){
 function processTemplate() {
     template = config.templates[document.getElementById("template").value]
 
-    if(document.getElementById("template").value == "atlas_dossier"){
-        document.getElementById("portrait_row").style = "display: none";
+    if(document.getElementById("template-selector").value == "atlas_dossier"){
+        document.getElementById("portrait-row").style = "display: none";
         last_portrait = portrait;
         portrait = config.dossier_portraits.empty;
     }
     else{
-        document.getElementById("portrait_row").style = "display: table-row";
+        document.getElementById("portrait-row").style = "display: table-row";
         portrait = last_portrait;
     }
 }
 
 function processPortrait() {
-    if(document.getElementById("portrait").value == "custom"){
-        document.getElementById("custom_portrait").style = "display: inline-block";
+    if(document.getElementById("portrait-selector").value == "custom"){
+        document.getElementById("custom-portrait-button").style = "display: inline-block";
     }
     else{
-        document.getElementById("custom_portrait").style = "display: none";
-        portrait = config.dossier_portraits[document.getElementById("portrait").value];
+        document.getElementById("custom-portrait-button").style = "display: none";
+        portrait = config.dossier_portraits[document.getElementById("portrait-selector").value];
     }
 }
 
@@ -111,19 +111,19 @@ function buildDossier() {
     };
 
     portrait_img.onload = function() {
-        var canvas = document.getElementById("result"),
+        var canvas = document.getElementById("working-canvas"),
             ctx = canvas.getContext("2d"),
-            show_canvas = document.getElementById("show"),
+            show_canvas = document.getElementById("show-canvas"),
             show_ctx = show_canvas.getContext("2d");
 
         canvas.width = 700;
         canvas.height = 350;
         ctx.drawImage(template_img, 0, 0, 700, 350);
         ctx.drawImage(portrait_img, 28, 24, 236, 221);
-        if(document.getElementById("template").value == "fade_dossier"){
+        if(document.getElementById("template-selector").value == "fade_dossier"){
             drawFadeDossier(ctx);
         }
-        if(document.getElementById("template").value == "atlas_dossier"){
+        if(document.getElementById("template-selector").value == "atlas_dossier"){
             drawAtlasDossier(ctx);
         }
         ctx.font = "9px DINNext-Light";
@@ -139,24 +139,24 @@ function drawFadeDossier(ctx){
     ctx.fillStyle = "#a0a0a0";
     ctx.textAlign = "start";
     ctx.font = "12px DINNext-Bold";
-    fillMultilineText(ctx, document.getElementById("header").value, 51, 273, 175, 15);
+    fillMultilineText(ctx, document.getElementById("header-input").value, 51, 273, 175, 15);
     ctx.font = "13px DINNext-Regular";
-    fillMultilineText(ctx, document.getElementById("body").value, 266, 62, 365, 18);
+    fillMultilineText(ctx, document.getElementById("body-input").value, 266, 62, 365, 18);
 }
 
 function drawAtlasDossier(ctx){
     ctx.textAlign = "start";
     ctx.fillStyle = "#ffffff";
     ctx.font = "13px DINNext-Regular";
-    fillMultilineText(ctx, document.getElementById("header").value, 53, 242, 175, 16);
+    fillMultilineText(ctx, document.getElementById("header-input").value, 53, 242, 175, 16);
     ctx.fillStyle = "#c8ccc2";
     ctx.font = "17px DINNext-Regular";
-    fillMultilineText(ctx, document.getElementById("body").value, 290, 51, 400, 20);
+    fillMultilineText(ctx, document.getElementById("body-input").value, 290, 51, 400, 20);
 }
 
 function downloadDossier() {
-    var canvas = document.getElementById("result"),
-        title = document.getElementById("title");
+    var canvas = document.getElementById("working-canvas"),
+        title = document.getElementById("title-input");
     canvas.toBlob(function(blob){
         saveAs(blob, title.value + " - disturbo.me.png");
         link = URL.createObjectURL(blob);

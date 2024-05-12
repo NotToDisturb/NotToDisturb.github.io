@@ -28,7 +28,7 @@
     <div style="font-family: DINNext-Light"></div>
     <div class="content main" style="font-family: DINNext-Regular">
         <div id="navbar"></div>
-        <div id="page_content">
+        <div id="page-content">
             <center>
                 <div style="margin-bottom: 30px; background-color:#0f192390">
                     <h1 style="padding:30px 0px 30px 0px; margin:0px">VALORANT Email Generator</h1>
@@ -39,7 +39,7 @@
                             <tr>
                                 <td>Template</td>
                                 <td>
-                                    <select id="template" onchange="processTemplate();buildEmail()">
+                                    <select id="template-selector" onchange="processTemplate();buildEmail()">
                                         <option value="valorant">VALORANT</option>
                                         <option value="k-corp">Kingdom Corp.</option>
                                         <option value="k-ind">Kingdom Ind.</option>
@@ -49,7 +49,7 @@
                             <tr>
                                 <td>Portrait</td>
                                 <td>
-                                    <select id="portrait" onchange="processPortrait();buildEmail()">
+                                    <select id="portrait-selector" onchange="processPortrait();buildEmail()">
                                         <optgroup class="portrait-group" label="VALORANT">
                                             <option value="astra">Astra</option>
                                             <option value="breach">Breach</option>
@@ -90,38 +90,38 @@
                                             <option value="custom">Custom</option>
                                         </optgroup>
                                     </select>
-                                    <button id="custom_portrait" style="display: none" onclick="openCustomPortraitPicker()">Select a custom portrait...</button>
+                                    <button id="custom-portrait-button" style="display: none" onclick="openCustomPortraitPicker()">Select a custom portrait...</button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Sender</td>
-                                <td><input type="text" id="sender" maxlength="35" size="61" oninput="buildEmail()"></td>
+                                <td><input type="text" id="sender-input" maxlength="35" size="61" oninput="buildEmail()"></td>
                             </tr>
                             <tr>
                                 <td>Receiver</td>
-                                <td><input type="text" id="receiver" maxlength="35" size="61" oninput="buildEmail()"></td>
+                                <td><input type="text" id="receiver-input" maxlength="35" size="61" oninput="buildEmail()"></td>
                             </tr>
                             <tr>
                                 <td>Title</td>
-                                <td><input type="text" id="title" maxlength="35" size="61" oninput="buildEmail()"></td>
+                                <td><input type="text" id="title-input" maxlength="35" size="61" oninput="buildEmail()"></td>
                             </tr>
                             <tr>
                                 <td>Date</td>
-                                <td><input type="text" id="date" maxlength="8" size="12" oninput="buildEmail()"></td>
+                                <td><input type="text" id="date-input" maxlength="8" size="12" oninput="buildEmail()"></td>
                             </tr>
                             <tr>
                                 <td>Body</td>
-                                <td><textarea id="body" style="resize: none;" cols="64" rows="8" oninput="buildEmail()"></textarea></td>
+                                <td><textarea id="body-input" style="resize: none;" cols="64" rows="8" oninput="buildEmail()"></textarea></td>
                             </tr>
                         </table>
                     </div>
                     <div style="display: inline-block; padding-right: 100px"></div>
                     <div style="display: inline-block; vertical-align: middle">
                         <div style="margin: 20px 10px">
-                            <canvas hidden id="result" width="700" height="350"></canvas>
-                            <canvas id="show" width="700" height="350"></canvas></div>
+                            <canvas hidden id="working-canvas" width="700" height="350"></canvas>
+                            <canvas id="show-canvas" width="700" height="350"></canvas></div>
                         <div>
-                            <a class="stylized_button" href="" onclick="downloadEmail(); return false;">Download email!</a>
+                            <a class="stylized-button" href="" onclick="downloadEmail(); return false;">Download email!</a>
                         </div>
                     </div>
                 </div>

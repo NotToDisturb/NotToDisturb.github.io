@@ -28,20 +28,20 @@
     <div style="font-family: DINNext-Light"></div>
     <div class="content main" style="font-family: DINNext-Regular">
         <div id="navbar"></div>
-        <div id="page_content">
+        <div id="page-content">
             <center>
                 <div style="margin-bottom: 30px; background-color:#0f192390">
                     <h1 style="padding:30px 0px 30px 0px; margin:0px">VALORANT Version Utils</h1>
                 </div>
                 <div>
-                    <div><b>Query VALORANT version:</b> <input type="text" id="valorant_version" maxlength="10" size="20" oninput="updateVersionQueries()"></div>
+                    <div><b>Query VALORANT version:</b> <input type="text" id="valorant-version-input" maxlength="10" size="20" oninput="updateVersionQueries()"></div>
                     <div style="margin: 0px 0px 30px 0px"></div>
                     <p><b>Manifests for VALORANT versions</b></p>
-                    <div><input type="checkbox" id="accept_release" checked="true" onclick="updateManifests()"> Release versions <input type="checkbox" id="accept_pbe" onclick="updateVersionQueries()"> PBE versions</div>
-                    <div><textarea readonly id="manifests" style="resize: none;" cols="64" rows="8"></textarea></div>
+                    <div><input type="checkbox" id="release-checkbox" checked="true" onclick="updateManifests()"> Release versions <input type="checkbox" id="pbe-checkbox" onclick="updateVersionQueries()"> PBE versions</div>
+                    <div><textarea readonly id="manifests-textarea" style="resize: none;" cols="64" rows="8"></textarea></div>
                     <div style="margin: 0px 0px 30px 0px"></div>
                     <p><b>FModel game for VALORANT version</b></p>
-                    <div><textarea readonly id="datamine" style="resize: none;" cols="48" rows="1"></textarea></div>
+                    <div><textarea readonly id="datamine-textarea" style="resize: none;" cols="48" rows="1"></textarea></div>
                     <div style="margin: 0px 0px 60px 0px"></div>
                     <p><b>VALORANT AES key</b></p>
                     <p>0x4BE71AF2459CF83899EC9DC2CB60E22AC4B3047E0211034BBABE9D174C069DD6</p>

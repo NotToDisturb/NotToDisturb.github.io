@@ -13,8 +13,8 @@ function getNavbar(){
 }
 
 function updateNavbarMargin(){
-    page_content = document.getElementById("page_content");
-    navbar = document.getElementById("navbar_div");
+    var page_content = document.getElementById("page-content"),
+        navbar = document.getElementById("navbar-div");
     page_content.style.marginTop = navbar.offsetHeight.toString() + "px";
 }
 
@@ -33,8 +33,8 @@ function getFooter(){
 }
 
 function updateFooterMargin(){
-    page_content = document.getElementById("page_content");
-    footer = document.getElementById("footer_div");
+    var page_content = document.getElementById("page-content"),
+        footer = document.getElementById("footer-div");
     page_content.style.marginBottom = footer.offsetHeight.toString() + "px";
 }
 
