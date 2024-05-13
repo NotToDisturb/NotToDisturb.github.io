@@ -50,10 +50,10 @@ function initTranslator() {
     updateDownloadButton();
 }
 
-function getSoHSymbol(letter, include_speculative) {
+function getSoHSymbol(letter, includeSpeculative) {
     if (letter in sohSymbols) {
         return sohSymbols[letter];
-    } else if (include_speculative && letter in sohSpeculativeSymbols) {
+    } else if (includeSpeculative && letter in sohSpeculativeSymbols) {
         return sohSpeculativeSymbols[letter];
     } else {
         return sohSymbols["unk"];
@@ -72,7 +72,7 @@ function getCanvasWidth(text) {
     var width = SYMBOL_GAP * (text.length + 1);
     for(var n = 0; n < text.length; n++) {
         letter = text[n].toLowerCase();
-        var sohSymbol = getSoHSymbol(letter, include_speculative);
+        var sohSymbol = getSoHSymbol(letter, include-speculative-checkbox);
         var [effectiveWidth, _] = getSoHSymbolMeasures(sohSymbol);
         width += effectiveWidth;
     }
@@ -80,8 +80,8 @@ function getCanvasWidth(text) {
 }
 
 function drawSoHSymbols() {
-    var text = document.getElementById("from_english").value;
-    var include_speculative = document.getElementById("include_speculative").checked;
+    var text = document.getElementById("english-input").value;
+    var includeSpeculative = document.getElementById("include-speculative-checkbox").checked;
     var canvas = document.getElementById("result"),
         ctx = canvas.getContext("2d"),
         show_canvas = document.getElementById("show"),
@@ -91,7 +91,7 @@ function drawSoHSymbols() {
     var cumulativeWidth = SYMBOL_GAP;
     for(var n = 0; n < text.length; n++) {
         letter = text[n].toLowerCase();
-        var sohSymbol = getSoHSymbol(letter, include_speculative);
+        var sohSymbol = getSoHSymbol(letter, includeSpeculative);
         var [effectiveWidth, effectiveHeight] = getSoHSymbolMeasures(sohSymbol);
         ctx.drawImage(sohSymbol, cumulativeWidth, (CANVAS_HEIGHT - effectiveHeight) / 2, effectiveWidth, effectiveHeight);
         cumulativeWidth += effectiveWidth + SYMBOL_GAP;
@@ -102,7 +102,7 @@ function drawSoHSymbols() {
 
 function toggleIncludeSpeculative() {
     drawSoHSymbols();
-    var includeSpeculative =  document.getElementById("include_speculative").checked;
+    var includeSpeculative =  document.getElementById("include-speculative-checkbox").checked;
     document.querySelectorAll(".speculative").forEach(input => {
         input.style.display = includeSpeculative ? "inline-block" : 'none';
     });
@@ -110,16 +110,16 @@ function toggleIncludeSpeculative() {
 
 function toggleToSymbolsLayout(layout) {
     if (layout == "alphabet") {
-        document.getElementById("soh_symbols_qwerty").style.display = "none";
-        document.getElementById("soh_symbols_alphabet").style.display = "inline";
+        document.getElementById("soh-symbols-qwerty-div").style.display = "none";
+        document.getElementById("soh-symbols-alphabet-div").style.display = "inline";
     } else {
-        document.getElementById("soh_symbols_qwerty").style.display = "inline";
-        document.getElementById("soh_symbols_alphabet").style.display = "none";
+        document.getElementById("soh-symbols-qwerty-div").style.display = "inline";
+        document.getElementById("soh-symbols-alphabet-div").style.display = "none";
     }
 }
 
 function updateDownloadButton() {
-    document.getElementById("download-button").hidden = document.getElementById("from_english").value.length == 0;
+    document.getElementById("download-button").hidden = document.getElementById("english-input").value.length == 0;
 }
 
 function updateEnglishToSoH() {
@@ -128,7 +128,7 @@ function updateEnglishToSoH() {
 }
 
 function updateSoHToEnglish(action, letter) {
-    var textInput = document.getElementById("from_english");
+    var textInput = document.getElementById("english-input");
     if (action == "add") {
         textInput.value = textInput.value + letter;
     } else if (action == "remove") {
@@ -142,7 +142,7 @@ function updateSoHToEnglish(action, letter) {
 
 function downloadSymbols() {
     var canvas = document.getElementById("result"),
-        title = document.getElementById("from_english");
+        title = document.getElementById("english-input");
     canvas.toBlob(function(blob){
         saveAs(blob, title.value + " - disturbo.me.png");
         link = URL.createObjectURL(blob);
