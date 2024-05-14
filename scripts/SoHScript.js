@@ -68,11 +68,11 @@ function getSoHSymbolMeasures(sohSymbol) {
     return [effectiveWidth, effectiveHeight];
 }
 
-function getCanvasWidth(text) {
+function getCanvasWidth(text, includeSpeculative) {
     var width = SYMBOL_GAP * (text.length + 1);
     for(var n = 0; n < text.length; n++) {
         letter = text[n].toLowerCase();
-        var sohSymbol = getSoHSymbol(letter, include-speculative-checkbox);
+        var sohSymbol = getSoHSymbol(letter, includeSpeculative);
         var [effectiveWidth, _] = getSoHSymbolMeasures(sohSymbol);
         width += effectiveWidth;
     }
@@ -86,7 +86,7 @@ function drawSoHSymbols() {
         ctx = canvas.getContext("2d"),
         show_canvas = document.getElementById("show"),
         show_ctx = show_canvas.getContext("2d");
-    canvas.width = getCanvasWidth(text);
+    canvas.width = getCanvasWidth(text, includeSpeculative);
     show_canvas.width = canvas.width;
     var cumulativeWidth = SYMBOL_GAP;
     for(var n = 0; n < text.length; n++) {
