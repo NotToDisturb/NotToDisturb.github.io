@@ -5,6 +5,10 @@ const CANVAS_HEIGHT = 40;
 var config = {};
 var sohSymbols = {}
 var sohSpeculativeSymbols = {}
+var sohLetterToSymbolMapping = {}
+var sohKeyboardConfigs = {}
+var currentKeyboardLayout = "alphabet"
+var currentKeyboardLetterCase = "upper"
 
 function loaded() {
     getNavbar();
@@ -20,43 +24,54 @@ function getConfig() {
             var configText = "";
             configText = xhr.responseText;
             config = JSON.parse(configText);
-            loadSoHSymbols(config.soh_script.letters_to_symbols, sohSymbols);
-            loadSoHSymbols(config.soh_script.letters_to_speculative_symbols, sohSpeculativeSymbols);
+            loadSoHSymbols(config.soh_script.symbol_assets.hollow.symbols, sohSymbols, "hollow");
+            loadSoHSymbols(config.soh_script.symbol_assets.solid.symbols, sohSymbols, "solid");
+            loadSoHSymbols(config.soh_script.symbol_assets.others.symbols, sohSymbols, "others");
+            loadSoHSymbols(config.soh_script.symbol_assets.hollow.speculative_symbols, sohSpeculativeSymbols, "hollow");
+            loadSoHSymbols(config.soh_script.symbol_assets.solid.speculative_symbols, sohSpeculativeSymbols, "solid");
+            sohLetterToSymbolMapping = config.soh_script.letter_to_symbol_type;
+            sohKeyboardConfigs = config.soh_script.keyboard_configs;
             initTranslator();
         }
     }
     xhr.send();
 }
 
-function loadSoHSymbols(letterToSymbolMap, loadedSymbols) {
+function loadSoHSymbols(letterToSymbolMap, loadedSymbols, symbolType) {
     var letters = Object.keys(letterToSymbolMap);
     var fistLetter = letters[0];
-    loadedSymbols[fistLetter] = new Image();
+    loadedSymbols[`${symbolType}-${fistLetter}`] = new Image();
     for (var n = 0; n < letters.length; n++) {
-        var currentChar = letters[n];
+        var currentLetter = letters[n];
         if (n + 1 < letters.length) {
             var nextLetter = letters[n + 1];
-            loadedSymbols[nextLetter] = new Image();
-            loadedSymbols[currentChar].onload = (function (nextChar) {
-                loadedSymbols[nextChar].src = letterToSymbolMap[nextChar];
-            })(nextLetter);
+            loadedSymbols[`${symbolType}-${nextLetter}`] = new Image();
+            loadedSymbols[`${symbolType}-${currentLetter}`].onload = (function (symbolType, nextLetter) {
+                loadedSymbols[`${symbolType}-${nextLetter}`].src = letterToSymbolMap[nextLetter];
+            })(symbolType, nextLetter);
         }
     }
-    loadedSymbols[fistLetter].src = letterToSymbolMap[fistLetter]
+    loadedSymbols[`${symbolType}-${fistLetter}`].src = letterToSymbolMap[fistLetter]
 }
 
 function initTranslator() {
+    setSymbolKeyboard();
     toggleIncludeSpeculative();
     updateDownloadButton();
 }
 
 function getSoHSymbol(letter, includeSpeculative) {
-    if (letter in sohSymbols) {
-        return sohSymbols[letter];
-    } else if (includeSpeculative && letter in sohSpeculativeSymbols) {
-        return sohSpeculativeSymbols[letter];
+    var symbolType = letter in sohLetterToSymbolMapping ? sohLetterToSymbolMapping[letter] : "none";
+    var symbolKey = `${symbolType}-${letter.toLowerCase()}`
+
+    if (symbolKey in sohSymbols) {
+        return sohSymbols[symbolKey];
+    } else if (includeSpeculative && symbolKey in sohSpeculativeSymbols) {
+        return sohSpeculativeSymbols[symbolKey];
+    } else if (letter == " "){
+        return sohSymbols["others- "];
     } else {
-        return sohSymbols["unk"];
+        return sohSymbols["others-unk"];
     }
 }
 
@@ -71,8 +86,7 @@ function getSoHSymbolMeasures(sohSymbol) {
 function getCanvasWidth(text, includeSpeculative) {
     var width = SYMBOL_GAP * (text.length + 1);
     for(var n = 0; n < text.length; n++) {
-        letter = text[n].toLowerCase();
-        var sohSymbol = getSoHSymbol(letter, includeSpeculative);
+        var sohSymbol = getSoHSymbol(text[n], includeSpeculative);
         var [effectiveWidth, _] = getSoHSymbolMeasures(sohSymbol);
         width += effectiveWidth;
     }
@@ -90,14 +104,44 @@ function drawSoHSymbols() {
     show_canvas.width = canvas.width;
     var cumulativeWidth = SYMBOL_GAP;
     for(var n = 0; n < text.length; n++) {
-        letter = text[n].toLowerCase();
-        var sohSymbol = getSoHSymbol(letter, includeSpeculative);
+        var sohSymbol = getSoHSymbol(text[n], includeSpeculative);
         var [effectiveWidth, effectiveHeight] = getSoHSymbolMeasures(sohSymbol);
         ctx.drawImage(sohSymbol, cumulativeWidth, (CANVAS_HEIGHT - effectiveHeight) / 2, effectiveWidth, effectiveHeight);
         cumulativeWidth += effectiveWidth + SYMBOL_GAP;
     }
     show_ctx.clearRect(0, 0, show_canvas.width, show_canvas.height);
     show_ctx.drawImage(canvas, (canvas.width - cumulativeWidth) / 2, 0, show_canvas.width, show_canvas.height);
+}
+
+function setSymbolKeyboard() {
+    var keyboard = window.document.getElementById("soh-symbols-keyboard-div");
+    var keyboardHtml = "";
+    sohKeyboardConfigs[currentKeyboardLayout].forEach((line) => {
+        keyboardHtml += "<p>";
+        line.forEach((letter) => {
+            shownLetter = currentKeyboardLetterCase == "upper" ? letter.toUpperCase() : letter;
+            symbolType = sohLetterToSymbolMapping[shownLetter];
+            symbolKey = `${symbolType}-${letter}`;
+            isSpeculative = symbolKey in sohSpeculativeSymbols;
+            if (isSpeculative){
+                keyboardHtml += `<a class="soh-symbol-button speculative" style="display: none;" href="" onclick="updateSoHToEnglish('add', '${shownLetter}'); return false;"><img src="${sohSpeculativeSymbols[symbolKey].src}" class="soh_symbol_img"/> ${shownLetter}*</a>`
+            } else {
+                console.log(symbolKey)
+                keyboardHtml += `<a class="soh-symbol-button" href="" onclick="updateSoHToEnglish('add', '${shownLetter}'); return false;"><img src="${sohSymbols[symbolKey].src}" class="soh_symbol_img"/> ${shownLetter}</a>`
+            }
+        });
+        keyboardHtml += "</p>";
+    });
+    var toLayout = currentKeyboardLayout == "alphabet" ? "QWERTY" : "Alphabet";
+    var toLetterCase = currentKeyboardLetterCase == "lower" ? "upper" : "lower";
+    keyboardHtml += `<p>
+                        <a class="stylized-button" href="" onclick="updateSoHToEnglish('add', ' '); return false;">Space</a>
+                        <a class="stylized-button" href="" onclick="updateSoHToEnglish('remove'); return false;">Remove</a>
+                        <a class="stylized-button" href="" onclick="updateSoHToEnglish('clear'); return false;">Clear</a>
+                        <a class="stylized-button" href="" onclick="toggleToSymbolLayout('${toLayout.toLowerCase()}'); return false;">Change to ${toLayout} layout</a>
+                        <a class="stylized-button" href="" onclick="toggleToLetterCase('${toLetterCase}'); return false;">Change to ${toLetterCase}case</a>
+                    </p>`;
+    keyboard.innerHTML = keyboardHtml;
 }
 
 function toggleIncludeSpeculative() {
@@ -108,14 +152,16 @@ function toggleIncludeSpeculative() {
     });
 }
 
-function toggleToSymbolsLayout(layout) {
-    if (layout == "alphabet") {
-        document.getElementById("soh-symbols-qwerty-div").style.display = "none";
-        document.getElementById("soh-symbols-alphabet-div").style.display = "inline";
-    } else {
-        document.getElementById("soh-symbols-qwerty-div").style.display = "inline";
-        document.getElementById("soh-symbols-alphabet-div").style.display = "none";
-    }
+function toggleToSymbolLayout(layout) {
+    currentKeyboardLayout = layout;
+    setSymbolKeyboard();
+    toggleIncludeSpeculative();
+}
+
+function toggleToLetterCase(letterCase) {
+    currentKeyboardLetterCase = letterCase;
+    setSymbolKeyboard();
+    toggleIncludeSpeculative();
 }
 
 function updateDownloadButton() {
@@ -146,7 +192,5 @@ function downloadSymbols() {
     canvas.toBlob(function(blob){
         saveAs(blob, title.value + " - disturbo.me.png");
         link = URL.createObjectURL(blob);
-        console.log(blob);
-        console.log(link);
     },'image/png');
 }

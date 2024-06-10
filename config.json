@@ -62,37 +62,144 @@
         "empty": "assets/portraits/dossiers/edits/Edits_Empty.png"
     },
     "soh_script": {
-        "letters_to_symbols": {
-            "a": "assets/soh-script/a.png",
-            "b": "assets/soh-script/b.png",
-            "c": "assets/soh-script/c.png",
-            "d": "assets/soh-script/d.png",
-            "e": "assets/soh-script/e.png",
-            "f": "assets/soh-script/f.png",
-            "g": "assets/soh-script/g.png",
-            "h": "assets/soh-script/h.png",
-            "i": "assets/soh-script/i.png",
-            "l": "assets/soh-script/l.png",
-            "m": "assets/soh-script/m.png",
-            "n": "assets/soh-script/n.png",
-            "o": "assets/soh-script/o.png",
-            "p": "assets/soh-script/p.png",
-            "r": "assets/soh-script/r.png",
-            "s": "assets/soh-script/s.png",
-            "t": "assets/soh-script/t.png",
-            "u": "assets/soh-script/u.png",
-            "v": "assets/soh-script/v.png",
-            "y": "assets/soh-script/y.png",
-            " ": "assets/soh-script/space.png",
-            "unk": "assets/soh-script/unk.png"
+        "keyboard_configs": {
+            "alphabet": [
+                ["a", "b", "c", "d", "e", "f", "g", "h"],
+                ["i", "j", "k", "l", "m", "n", "o", "p"],
+                ["q", "r", "s", "t", "u", "v", "w", "x"],
+                ["y", "z"]
+            ],
+            "qwerty": [
+                ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
+                ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
+                ["z", "x", "c", "v", "b", "n", "m"]
+            ]
         },
-        "letters_to_speculative_symbols": {
-            "j": "assets/soh-script/speculative/j.png",
-            "k": "assets/soh-script/speculative/k.png",
-            "q": "assets/soh-script/speculative/q.png",
-            "w": "assets/soh-script/speculative/w.png",
-            "x": "assets/soh-script/speculative/x.png",
-            "z": "assets/soh-script/speculative/z.png"
+        "letter_to_symbol_type": {
+            "A": "hollow",
+            "B": "hollow",
+            "C": "hollow",
+            "D": "hollow",
+            "E": "hollow",
+            "F": "hollow",
+            "G": "hollow",
+            "H": "hollow",
+            "I": "hollow",
+            "J": "hollow",
+            "K": "hollow",
+            "L": "hollow",
+            "M": "hollow",
+            "N": "hollow",
+            "O": "hollow",
+            "P": "hollow",
+            "Q": "hollow",
+            "R": "hollow",
+            "S": "hollow",
+            "T": "hollow",
+            "U": "hollow",
+            "V": "hollow",
+            "W": "hollow",
+            "X": "hollow",
+            "Y": "hollow",
+            "Z": "hollow",
+            "a": "solid",
+            "b": "solid",
+            "c": "solid",
+            "d": "solid",
+            "e": "solid",
+            "f": "solid",
+            "g": "solid",
+            "h": "solid",
+            "i": "solid",
+            "j": "solid",
+            "k": "solid",
+            "l": "solid",
+            "m": "solid",
+            "n": "solid",
+            "o": "solid",
+            "p": "solid",
+            "q": "solid",
+            "r": "solid",
+            "s": "solid",
+            "t": "solid",
+            "u": "solid",
+            "v": "solid",
+            "w": "solid",
+            "x": "solid",
+            "y": "solid",
+            "z": "solid"
+        },
+        "symbol_assets": { 
+            "hollow": {
+                "symbols": {
+                    "a": "assets/soh-script/hollow/a.png",
+                    "b": "assets/soh-script/hollow/b.png",
+                    "c": "assets/soh-script/hollow/c.png",
+                    "e": "assets/soh-script/hollow/e.png",
+                    "l": "assets/soh-script/hollow/l.png",
+                    "n": "assets/soh-script/hollow/n.png",
+                    "p": "assets/soh-script/hollow/p.png",
+                    "r": "assets/soh-script/hollow/r.png",
+                    "s": "assets/soh-script/hollow/s.png",
+                    "t": "assets/soh-script/hollow/t.png",
+                    "u": "assets/soh-script/hollow/u.png",
+                    "v": "assets/soh-script/hollow/v.png",
+                    "y": "assets/soh-script/hollow/y.png"
+                },
+                "speculative_symbols": {
+                    "d": "assets/soh-script/hollow/speculative/d.png",
+                    "f": "assets/soh-script/hollow/speculative/f.png",
+                    "g": "assets/soh-script/hollow/speculative/g.png",
+                    "h": "assets/soh-script/hollow/speculative/h.png",
+                    "i": "assets/soh-script/hollow/speculative/i.png",
+                    "j": "assets/soh-script/hollow/speculative/j.png",
+                    "k": "assets/soh-script/hollow/speculative/k.png",
+                    "m": "assets/soh-script/hollow/speculative/m.png",
+                    "o": "assets/soh-script/hollow/speculative/o.png",
+                    "q": "assets/soh-script/hollow/speculative/q.png",
+                    "w": "assets/soh-script/hollow/speculative/w.png",
+                    "x": "assets/soh-script/hollow/speculative/x.png",
+                    "z": "assets/soh-script/hollow/speculative/z.png"
+                }
+            },
+            "solid": {
+                "symbols": {
+                    "a": "assets/soh-script/solid/a.png",
+                    "b": "assets/soh-script/solid/b.png",
+                    "c": "assets/soh-script/solid/c.png",
+                    "d": "assets/soh-script/solid/d.png",
+                    "e": "assets/soh-script/solid/e.png",
+                    "f": "assets/soh-script/solid/f.png",
+                    "g": "assets/soh-script/solid/g.png",
+                    "h": "assets/soh-script/solid/h.png",
+                    "i": "assets/soh-script/solid/i.png",
+                    "k": "assets/soh-script/solid/k.png",
+                    "l": "assets/soh-script/solid/l.png",
+                    "m": "assets/soh-script/solid/m.png",
+                    "n": "assets/soh-script/solid/n.png",
+                    "o": "assets/soh-script/solid/o.png",
+                    "p": "assets/soh-script/solid/p.png",
+                    "r": "assets/soh-script/solid/r.png",
+                    "s": "assets/soh-script/solid/s.png",
+                    "t": "assets/soh-script/solid/t.png",
+                    "u": "assets/soh-script/solid/u.png",
+                    "v": "assets/soh-script/solid/v.png",
+                    "w": "assets/soh-script/solid/w.png", 
+                    "y": "assets/soh-script/solid/y.png"
+                },
+                "speculative_symbols": {
+                    "j": "assets/soh-script/solid/speculative/j.png",
+                    "q": "assets/soh-script/solid/speculative/q.png",
+                    "x": "assets/soh-script/solid/speculative/x.png",
+                    "z": "assets/soh-script/solid/speculative/z.png"
+                }
+            },
+            "others": {
+                "symbols": {
+                    " ": "assets/soh-script/space.png",
+                    "unk": "assets/soh-script/unk.png"
+                }
+            }
         }
     }
 }
